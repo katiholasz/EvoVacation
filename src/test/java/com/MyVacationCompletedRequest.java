@@ -13,26 +13,33 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.LogInSteps;
+import com.steps.MyVacationCompletedRequestsSteps;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
-public class LogIn {
+public class MyVacationCompletedRequest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
 	public Pages pages;
+
+	@Steps
+	public LogInSteps logIn;
 
 	@Steps
 	public LogInSteps endUser;
 
+	@Steps
+	public MyVacationCompletedRequestsSteps endUser1;
+
 	@Test
 	public void Log_In() {
-		endUser.enter_user("amelia.ilies@evozon.com");
-		endUser.enter_passd("1234");
-		endUser.clickMe();
+		logIn.enter_user("amelia.ilies@evozon.com");
+		logIn.enter_passd("1234");
+		logIn.clickMe();
 		endUser.click_vacations();
-
+		endUser1.click_MyVacationCompletedRequest();
 	}
 }

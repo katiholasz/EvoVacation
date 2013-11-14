@@ -4,56 +4,58 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import com.MyVacationCompletedRequest;
+import com.MyVacationRequest;
 import com.pages.LogInPage;
 import com.pages.VacationPage;
+import com.pages.ApproveVacationRequestsPage;
 
 @SuppressWarnings("serial")
 public class LogInSteps extends ScenarioSteps {
 
-    LogInPage dictionaryPage;
-    VacationPage vacationPage;
+	LogInPage dictionaryPage;
+	VacationPage vacationPage;
+	MyVacationCompletedRequest myvacationcompletedrequestsPage;
+	MyVacationRequest myvacationrequestsPage;
+	ApproveVacationRequestsPage vacationrequestsPage;
 
-    public LogInSteps(Pages pages) 
-    {
-        super(pages);
-    }
-    
-   @Step
-   public void logIn(String email, String password) 
-   {
-       dictionaryPage.enter(email).into(dictionaryPage.email);
-       dictionaryPage.enter(password).into(dictionaryPage.password);
-       dictionaryPage.signin.click();
-   }
-       
+	public LogInSteps(Pages pages) {
+		super(pages);
+	}
 
-    @Step
-    public void enter_user(String email) {
-        dictionaryPage.open();
-        dictionaryPage.enter_email(email);
-    }
+	@Step
+	public void logIn(String email, String password) {
+		dictionaryPage.enter(email).into(dictionaryPage.email);
+		dictionaryPage.enter(password).into(dictionaryPage.password);
+		dictionaryPage.signin.click();
+	}
 
-    @Step
-    public void enter_passd(String password) {
-        dictionaryPage.enter_password(password);
-    }
+	@Step
+	public void enter_user(String email) {
+		dictionaryPage.open();
+		dictionaryPage.enter_email(email);
+	}
 
-    @Step
-    public void clickMe() {
-        dictionaryPage.submit();
-    }
-    
-    @Step
-    public void click_vacations() 
-    {
-        vacationPage.vacation();
-    }
+	@Step
+	public void enter_passd(String password) {
+		dictionaryPage.enter_password(password);
+	}
 
-    @Step
+	@Step
+	public void clickMe() {
+		dictionaryPage.submit();
+	}
+
+	@Step
+	public void click_vacations() {
+		vacationPage.vacation();
+	}
+
+	@Step
     public void click_log_out()
     {
-    	dictionaryPage.logout();
+     dictionaryPage.LogOut();
     }
-    
+
+	
 }
-    

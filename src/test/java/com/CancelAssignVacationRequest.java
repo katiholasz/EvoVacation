@@ -12,27 +12,44 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.steps.AssignVacationRequestSteps;
+import com.steps.CancelAssignVacationRequestSteps;
 import com.steps.LogInSteps;
 
-@Story(Application.Login.LogIn.class)
+@Story(Application.class)
 @RunWith(ThucydidesRunner.class)
-public class LogIn {
+public class CancelAssignVacationRequest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
 	public Pages pages;
+
+	@Steps
+	public LogInSteps logIn;
 
 	@Steps
 	public LogInSteps endUser;
 
+	@Steps
+	public AssignVacationRequestSteps endUser1;
+
+	@Steps
+	public AssignVacationRequestSteps assignTo;
+	
+	@Steps
+	public CancelAssignVacationRequestSteps cancelAssign;
+
 	@Test
 	public void Log_In() {
-		endUser.enter_user("amelia.ilies@evozon.com");
-		endUser.enter_passd("1234");
-		endUser.clickMe();
+		logIn.enter_user("amelia.ilies@evozon.com");
+		logIn.enter_passd("1234");
+		logIn.clickMe();
 		endUser.click_vacations();
-
+		endUser1.click_VacationRequestsBtn();
+		endUser1.click_VacationRequestsActionBtn();
+		endUser1.click_AssignToBtn();
+		cancelAssign.click_Cancel();
 	}
 }

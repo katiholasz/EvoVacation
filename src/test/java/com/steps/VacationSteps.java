@@ -10,25 +10,15 @@ import com.pages.VacationPage;
 @SuppressWarnings("serial")
 public class VacationSteps extends ScenarioSteps {
 
-    public VacationSteps(Pages pages) {
+	public VacationSteps(Pages pages) {
 		super(pages);
-		
 	}
 
 	LogInPage dictionaryPage;
-    VacationPage vacationPage;
+	VacationPage vacationPage;
 
-    @Step
-    public void click_addNewVacation()
-    {
-    	vacationPage.AddNewVacation();
-    }
-   /* 
-    @Step
-    public void submit_NewRequest()
-    {
-    	vacationPage.submitNewRequest();
-    }
-    */
+	@Step
+	public void click_addNewVacation() {
+		vacationPage.AddNewVacation();
+	}
 }
-    
