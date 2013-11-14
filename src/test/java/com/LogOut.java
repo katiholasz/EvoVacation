@@ -29,10 +29,10 @@ public class LogOut
     public LogInSteps endUser;
     
     @Test
-    public void Log_In() 
+    public void Log_Out() 
     {
-       endUser.enter_user("amelia.ilies@evozon.com");
-       endUser.enter_passd("1234");
+       endUser.enter_user("holaszkati@ymail.com");
+       endUser.enter_passd("kati");
        endUser.clickMe();
        endUser.click_log_out();
        

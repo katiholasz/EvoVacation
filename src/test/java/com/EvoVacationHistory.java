@@ -1,5 +1,7 @@
 package com;
 
+import java.awt.AWTException;
+
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -17,14 +19,16 @@ import com.steps.EvoVacationHistorySteps;
 import com.steps.LogInSteps;
 import com.steps.VacationSteps;
 
+import tools.Constants;;
+
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
-public class Vacations {
+public class EvoVacationHistory {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
+	@ManagedPages(defaultUrl = "http://localhost:9090/")
 	public Pages pages;
 
 	@Steps
@@ -35,14 +39,20 @@ public class Vacations {
 	public ControlPanelSteps controlPanelSteps;
 	@Steps
 	public EvoVacationHistorySteps evoVacationHistorySteps;
-
+	
 	@Test
-	public void Log_In() {
-		logIn.enter_user("holaszkati@ymail.com");
-		logIn.enter_passd("kati");
+	public void Log_In() throws AWTException {
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
-		logIn.click_vacations();
-		
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.click_EvoVacationHistory();
+		evoVacationHistorySteps.check_AdvancedSearch();
+		evoVacationHistorySteps.insert_firstName();
+		evoVacationHistorySteps.send_enter();
+		evoVacationHistorySteps.insert_LastName();
+		evoVacationHistorySteps.insert_dayCount();
+		evoVacationHistorySteps.insert_vacationType();
 	}
-
 }

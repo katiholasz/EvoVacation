@@ -19,9 +19,6 @@ public class LogInPage extends PageObject {
 	@FindBy(css = ".aui-button-input")
 	public WebElement signin;
 
-	@FindBy(linkText = "Logout")
-	public WebElement logout;
-	
 	@FindBy(linkText = "Sign Out")
     public WebElement logOut;
 

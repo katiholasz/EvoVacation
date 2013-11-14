@@ -13,18 +13,19 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.ControlPanelSteps;
-import com.steps.EvoVacationHistorySteps;
+import com.steps.EvoCancelVacationSteps;
 import com.steps.LogInSteps;
 import com.steps.VacationSteps;
+import tools.Constants;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
-public class Vacations {
+public class EvoCancelVacationSearch {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
+	@ManagedPages(defaultUrl = "http://localhost:9090/")
 	public Pages pages;
 
 	@Steps
@@ -34,15 +35,23 @@ public class Vacations {
 	@Steps
 	public ControlPanelSteps controlPanelSteps;
 	@Steps
-	public EvoVacationHistorySteps evoVacationHistorySteps;
+	public EvoCancelVacationSteps evoCancelVacationsteps;
+
 
 	@Test
 	public void Log_In() {
-		logIn.enter_user("holaszkati@ymail.com");
-		logIn.enter_passd("kati");
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
-		logIn.click_vacations();
-		
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.click_EvoCancelVacation();
+		evoCancelVacationsteps.click_SearchBetweenDates();		
+		evoCancelVacationsteps.start_month_ECvS("December");	
+		evoCancelVacationsteps.start_day_ECvS("21");	
+		evoCancelVacationsteps.start_year_ECvS("2013");	
+		evoCancelVacationsteps.end_month_ECvS("December");	
+		evoCancelVacationsteps.end_day_ECvS("22");	
+		evoCancelVacationsteps.end_year_ECvS("2013");	
 	}
-
 }

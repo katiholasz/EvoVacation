@@ -13,18 +13,18 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.ControlPanelSteps;
-import com.steps.EvoVacationHistorySteps;
 import com.steps.LogInSteps;
+import com.steps.MyFreeDaysSteps;
 import com.steps.VacationSteps;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
-public class Vacations {
+public class MyFreeDays {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
+	@ManagedPages(defaultUrl = "http://localhost:9090/")
 	public Pages pages;
 
 	@Steps
@@ -34,15 +34,21 @@ public class Vacations {
 	@Steps
 	public ControlPanelSteps controlPanelSteps;
 	@Steps
-	public EvoVacationHistorySteps evoVacationHistorySteps;
+	public MyFreeDaysSteps myFreeDaysSteps;
 
 	@Test
 	public void Log_In() {
+		webdriver.manage().window().maximize();
 		logIn.enter_user("holaszkati@ymail.com");
 		logIn.enter_passd("kati");
 		logIn.clickMe();
-		logIn.click_vacations();
-		
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.click_MyFreeDays();
+		myFreeDaysSteps.enter_freeCurrentYear("2");
+		myFreeDaysSteps.enter_freeFromLastYear("3");
+		myFreeDaysSteps.enter_monthsExpBeforeHiring("10");
+		myFreeDaysSteps.enter_monthsExpPreviousEvozon("12");
+		myFreeDaysSteps.refresh();		
 	}
-
 }
