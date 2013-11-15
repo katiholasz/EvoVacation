@@ -24,8 +24,12 @@ public class EvoCancelVacationSteps extends ScenarioSteps {
 	MyFreeDaysPage myFreeDaysPage;
 	EvoCancelVacationPage evoCancelVacationPage;
 
-
 	// --------------------- STEPS ------------------------------------------
+	@Step
+	 public void select_tip_concediu(String tipConcediu) {
+		evoCancelVacationPage.click_ddlTipConcediu(tipConcediu);
+	 } 
+	
 	@Step
 	public void click_SearchBetweenDates() 
 	{
@@ -50,7 +54,7 @@ public class EvoCancelVacationSteps extends ScenarioSteps {
 		evoCancelVacationPage.click_TipConcediuDropDown();
 	}
 
-	
+
 	// SEARCH ON EVO CANCEL VACATION
 	@Step
 	public void start_month_ECvS(String sMonth_ECvS){
@@ -70,7 +74,7 @@ public class EvoCancelVacationSteps extends ScenarioSteps {
 	public void end_month_ECvS(String eMonth_ECvS){
 		evoCancelVacationPage.pick_end_month_ECvS(eMonth_ECvS);
 	}
-	
+
 	@Step
 	public void end_day_ECvS(String eDay_ECvS){
 		evoCancelVacationPage.pick_end_day_ECvS(eDay_ECvS);

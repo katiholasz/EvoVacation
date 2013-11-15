@@ -73,4 +73,9 @@ public class NewVacationRequestSteps extends ScenarioSteps{
 	public void click_button_cancel(){
 		newVacationRequest.cancel_request();
 	}
+	
+	@Step
+    public void checkNotificationMessage(String msg) {
+		newVacationRequest.checkNotificationMessage(msg);
+    }
 }

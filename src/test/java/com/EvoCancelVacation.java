@@ -16,6 +16,7 @@ import com.steps.ControlPanelSteps;
 import com.steps.EvoCancelVacationSteps;
 import com.steps.LogInSteps;
 import com.steps.VacationSteps;
+import tools.Constants;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
@@ -36,19 +37,16 @@ public class EvoCancelVacation {
 	@Steps
 	public EvoCancelVacationSteps evoCancelVacationsteps;
 
-
 	@Test
 	public void Log_In() {
 		webdriver.manage().window().maximize();
-		logIn.enter_user("holaszkati@ymail.com");
-		logIn.enter_passd("kati");
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
 		controlPanelSteps.click_EvoCancelVacation();
 		evoCancelVacationsteps.click_SearchBetweenDates();
 		evoCancelVacationsteps.cancelExistingRequest();
-		//evoCancelVacationsteps.click_TipConcediuDropDown();
-		
 	}
 }

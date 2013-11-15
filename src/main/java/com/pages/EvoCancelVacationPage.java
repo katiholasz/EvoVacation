@@ -1,6 +1,9 @@
 package com.pages;
 
+import java.util.List;
+
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.pages.PageObject;
 
 import org.openqa.selenium.WebDriver;
@@ -45,11 +48,35 @@ public class EvoCancelVacationPage extends PageObject {
 	@FindBy(id = "_evocancelvacation_WAR_EvozonCancelVacationportlet_endYear")
 	public WebElement end_year_ECvS;
 
+	@FindBy(css =".concediu-label")
+	private WebElement ddlTipConcediu;
+
+	@FindBy(css ="ul.concediu-ul")
+	private WebElement concediuListContainer;
+
 	// ---------------------------------- METHODS
-	// --------------------------------------------------
 	public void refresh_page() {
 		getDriver().navigate().refresh();
 
+	}
+
+	public void click_ddlTipConcediu(String checkName)
+	{
+		element(ddlTipConcediu).waitUntilVisible();
+		element(ddlTipConcediu).click();
+
+		element(concediuListContainer).waitUntilVisible();
+
+		List<WebElement> checkList = concediuListContainer.findElements(By.cssSelector("li span.aui-field-content"));
+
+		for(WebElement elementNow:checkList){
+			String currentTerm = elementNow.getText();
+			System.out.println("Current term: " + currentTerm);
+			if(currentTerm.contains(checkName)){
+				elementNow.findElement(By.cssSelector("input:last-child")).click();
+				break;
+			}
+		}
 	}
 
 	// Check - check Between Dates Option - from - Evo cancel Vacation
@@ -80,11 +107,6 @@ public class EvoCancelVacationPage extends PageObject {
 			refresh_page();
 		} else {
 			element(cancelVacationRequest).waitUntilVisible();
-			/*
-			 * Actions actions = new Actions(getDriver());
-			 * actions.moveToElement(
-			 * TipConcediuDropDown).click().build().perform();
-			 */
 			element(cancelVacationRequest).click();
 		}
 	}
@@ -93,8 +115,6 @@ public class EvoCancelVacationPage extends PageObject {
 		element(start_month_ECvS).waitUntilVisible();
 		start_month_ECvS.click();
 		start_month_ECvS.click();
-		// Select aaa = new Select(ddlStartMonth);
-		// aaa.selectByVisibleText(sMonth);
 		element(start_month_ECvS).selectByVisibleText(sMonth);
 	}
 
@@ -102,8 +122,6 @@ public class EvoCancelVacationPage extends PageObject {
 		element(start_day_ECvS).waitUntilVisible();
 		start_day_ECvS.click();
 		start_day_ECvS.click();
-		// Select aaa = new Select(ddlStartMonth);
-		// aaa.selectByVisibleText(sMonth);
 		element(start_day_ECvS).selectByVisibleText(sDay);
 	}
 
@@ -111,8 +129,6 @@ public class EvoCancelVacationPage extends PageObject {
 		element(start_year_ECvS).waitUntilVisible();
 		start_year_ECvS.click();
 		start_year_ECvS.click();
-		// Select aaa = new Select(ddlStartMonth);
-		// aaa.selectByVisibleText(sMonth);
 		element(start_year_ECvS).selectByVisibleText(sYear);
 	}
 
@@ -120,8 +136,6 @@ public class EvoCancelVacationPage extends PageObject {
 		element(end_month_ECvS).waitUntilVisible();
 		end_month_ECvS.click();
 		end_month_ECvS.click();
-		// Select aaa = new Select(ddlStartMonth);
-		// aaa.selectByVisibleText(sMonth);
 		element(end_month_ECvS).selectByVisibleText(eMonth);
 	}
 
@@ -129,8 +143,6 @@ public class EvoCancelVacationPage extends PageObject {
 		element(end_day_ECvS).waitUntilVisible();
 		end_day_ECvS.click();
 		end_day_ECvS.click();
-		// Select aaa = new Select(ddlStartMonth);
-		// aaa.selectByVisibleText(sMonth);
 		element(end_day_ECvS).selectByVisibleText(eDay);
 	}
 
@@ -138,8 +150,6 @@ public class EvoCancelVacationPage extends PageObject {
 		element(end_year_ECvS).waitUntilVisible();
 		end_year_ECvS.click();
 		end_year_ECvS.click();
-		// Select aaa = new Select(ddlStartMonth);
-		// aaa.selectByVisibleText(sMonth);
 		element(end_year_ECvS).selectByVisibleText(eYear);
 	}
 

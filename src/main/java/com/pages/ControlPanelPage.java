@@ -34,7 +34,7 @@ public class ControlPanelPage extends PageObject {
 	// web element - click Control Panel for "Evo Cancel Vacation"
 	@FindBy(id = "_160_portlet_evocancelvacation_WAR_EvozonCancelVacationportlet")
 	public WebElement goTo_EvoCancelVacation;
-	
+
 	// web element - click Control Panel for "Evo Cancel Vacation"
 	@FindBy(id = "_160_portlet_125")
 	public WebElement goTo_UsersAndOrganisation;
@@ -49,10 +49,6 @@ public class ControlPanelPage extends PageObject {
 
 	public void click_ControlPanel() {
 		element(goTo_ControlPanel).waitUntilVisible();
-		/*
-		  Actions actions = new Actions(getDriver());
-		  actions.moveToElement(goTo_ControlPanel).click().build().perform();
-		 */
 		goTo_ControlPanel.click();
 	}
 
@@ -65,7 +61,7 @@ public class ControlPanelPage extends PageObject {
 		element(goTo_EvoVacationHistory).waitUntilVisible();
 		goTo_EvoVacationHistory.click();
 	}
-	
+
 	public void click_EvoCancelVacation() {
 		element(goTo_EvoCancelVacation).waitUntilVisible();
 		goTo_EvoCancelVacation.click();

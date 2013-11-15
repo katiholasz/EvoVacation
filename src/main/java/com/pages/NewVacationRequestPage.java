@@ -1,8 +1,10 @@
 package com.pages;
 
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.pages.PageObject;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -124,4 +126,14 @@ public class NewVacationRequestPage extends PageObject {
 		element(cancel_request).waitUntilVisible();
 		cancel_request.click();
 	}
+	
+	public void checkNotificationMessage(String msg) {
+        WebElement message = getDriver()
+                        .findElement(
+                                        By.cssSelector("div[class*='borderless-container'] div[class*='portlet-msg-success']"));
+        System.out.println("It works! " + message.getText());
+
+        Assert.assertTrue("The message is not correct!", message.getText()
+                        .contains(msg));
+}
 }

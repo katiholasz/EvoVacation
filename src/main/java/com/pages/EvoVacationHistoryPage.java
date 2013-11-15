@@ -12,6 +12,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.internal.seleniumemulation.SeleniumMutator;
+import org.openqa.selenium.internal.seleniumemulation.SeleniumSelect;
 import org.openqa.selenium.support.FindBy;
 
 @SuppressWarnings("unused")
@@ -56,21 +58,17 @@ public class EvoVacationHistoryPage extends PageObject {
 	public void refresh_page()
 	{
 		getDriver().navigate().refresh();
-
-//		Actions actionObject = new Actions(getDriver());
-//		actionObject.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
 	}
-	
+
 	public void goto_EvoVH()
 	{
-	element(goTo_EvoVacationHistory).waitUntilVisible();
-	element(goTo_EvoVacationHistory).click(); 
+		element(goTo_EvoVacationHistory).waitUntilVisible();
+		element(goTo_EvoVacationHistory).click(); 
 	}
-	
-	public void send_enter() throws AWTException
+
+	public void send_enter() 
 	{
-		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_ENTER);
+
 	}
 
 	public void checkAdvancedSearch() 
@@ -79,7 +77,6 @@ public class EvoVacationHistoryPage extends PageObject {
 		{
 			element(advancedSearchLink).waitUntilVisible();
 			element(advancedSearchLink).click(); 
-			//element(lastName_field).typeAndEnter();		
 		} 
 		else
 		{

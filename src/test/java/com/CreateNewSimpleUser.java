@@ -53,23 +53,26 @@ public class CreateNewSimpleUser {
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
 		controlPanelSteps.click_UsersAndOrganisation();
-		createNewSimpleUserSteps
-		.getDriver()
-		.get(Constants.ADD_USER_URL);
+		createNewSimpleUserSteps.getDriver().get(Constants.ADD_USER_URL);
 		createNewSimpleUserSteps.enter_screenName(Constants.NU_SCREEN_NAME);
 		createNewSimpleUserSteps.enter_emailAdress(Constants.NU_EMAIL);
 		createNewSimpleUserSteps.enter_fName(Constants.NU_F_NAME);
 		createNewSimpleUserSteps.enter_lName(Constants.NU_L_NAME);
 		createNewSimpleUserSteps.enter_pID(Constants.NU_PERS_ID);
 		createNewSimpleUserSteps.enter_birthPlace(Constants.NU_BIRTH_PLACE);
-		createNewSimpleUserSteps.click_save_newUser();
-		createNewSimpleUserSteps
-		.getDriver()
-		.get(Constants.ADD_PASS_URL);
-
 		/*
-		 * try { Thread.sleep(10000L); // one second } catch (Exception e) {}
+		createNewSimpleUserSteps.click_save_newUser();
+		createNewSimpleUserSteps.getDriver().get(Constants.ADD_PASS_URL);
+		createNewSimpleUserSteps.enter_password1(Constants.NU_PASSWORD);
+		createNewSimpleUserSteps.enter_password2(Constants.NU_PASSWORD);
+		createNewSimpleUserSteps.click_save_newUser();
+		createNewSimpleUserSteps.getDriver().get(Constants.ADD_SITES_URL);
+		createNewSimpleUserSteps.add_net_department();
+		
+		//createNewSimpleUserSteps.getDriver().get(Constants.ADD_ROLES_URL);
+		//createNewSimpleUserSteps.click_save_newUser();
 		 */
+
 
 	}
 

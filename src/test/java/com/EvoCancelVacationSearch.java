@@ -46,12 +46,13 @@ public class EvoCancelVacationSearch {
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
 		controlPanelSteps.click_EvoCancelVacation();
-		evoCancelVacationsteps.click_SearchBetweenDates();		
-		evoCancelVacationsteps.start_month_ECvS("December");	
-		evoCancelVacationsteps.start_day_ECvS("21");	
-		evoCancelVacationsteps.start_year_ECvS("2013");	
-		evoCancelVacationsteps.end_month_ECvS("December");	
-		evoCancelVacationsteps.end_day_ECvS("22");	
-		evoCancelVacationsteps.end_year_ECvS("2013");	
+		evoCancelVacationsteps.click_SearchBetweenDates();	
+		evoCancelVacationsteps.select_tip_concediu("Concediu de odihna");
+		evoCancelVacationsteps.start_month_ECvS(Constants.S_MONTH_ECV);	
+		evoCancelVacationsteps.start_day_ECvS(Constants.S_DAY_ECV);	
+		evoCancelVacationsteps.start_year_ECvS(Constants.S_YEAR_ECV);	
+		evoCancelVacationsteps.end_month_ECvS(Constants.E_MONTH_ECV);	
+		evoCancelVacationsteps.end_day_ECvS(Constants.E_DAY_ECV);	
+		evoCancelVacationsteps.end_year_ECvS(Constants.E_YEAR_ECV);	
 	}
 }

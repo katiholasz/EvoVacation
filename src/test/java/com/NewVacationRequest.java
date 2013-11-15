@@ -17,7 +17,7 @@ import com.steps.EvoVacationHistorySteps;
 import com.steps.LogInSteps;
 import com.steps.NewVacationRequestSteps;
 import com.steps.VacationSteps;
-
+import tools.Constants;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
@@ -28,7 +28,6 @@ public class NewVacationRequest {
 
 	@ManagedPages(defaultUrl = "http://localhost:9090/")
 	public Pages pages;
-
 
 	@Steps
 	public LogInSteps logIn;
@@ -42,36 +41,36 @@ public class NewVacationRequest {
 	public NewVacationRequestSteps newVacationRequestSteps;
 
 	@Test
-	public void LogIn() 
-	{
-		logIn.enter_user("holaszkati@ymail.com");
-		logIn.enter_passd("kati");
+	public void LogIn() {
+		// test 1 - SAVE
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
 		logIn.click_vacations();
 		newVacationRequestSteps.clickNewVacation();
-		newVacationRequestSteps.start_month("December");
-		newVacationRequestSteps.start_day("28");
-		newVacationRequestSteps.start_year("2013");
-		newVacationRequestSteps.end_month("December");
-		newVacationRequestSteps.end_day("28");
-		newVacationRequestSteps.end_year("2013");
+		newVacationRequestSteps.start_month(Constants.START_MONTH_NVR);
+		newVacationRequestSteps.start_day(Constants.START_DAY_NVR);
+		newVacationRequestSteps.start_year(Constants.START_YEAR_NVR);
+		newVacationRequestSteps.end_month(Constants.END_MONTH_NVR);
+		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
+		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.clickSaveBtn();
 		logIn.click_log_out();
-		
-		logIn.enter_user("holaszkati@ymail.com");
-		logIn.enter_passd("kati");
+		// test 2 - CANCEL
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
 		logIn.click_vacations();
 		newVacationRequestSteps.clickNewVacation();
-		newVacationRequestSteps.start_month("December");
-		newVacationRequestSteps.start_day("28");
-		newVacationRequestSteps.start_year("2013");
-		newVacationRequestSteps.end_month("December");
-		newVacationRequestSteps.end_day("28");
-		newVacationRequestSteps.end_year("2013");
+		newVacationRequestSteps.start_month(Constants.START_MONTH_NVR);
+		newVacationRequestSteps.start_day(Constants.START_DAY_NVR);
+		newVacationRequestSteps.start_year(Constants.START_YEAR_NVR);
+		newVacationRequestSteps.end_month(Constants.END_MONTH_NVR);
+		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
+		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.click_button_cancel();
 		logIn.click_log_out();
-		
+
 	}
 
 }

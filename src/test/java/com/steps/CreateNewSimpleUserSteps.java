@@ -9,7 +9,7 @@ import com.pages.LogInPage;
 import com.pages.VacationPage;
 import com.pages.CreateNewSimpleUserPage;
 
-;
+
 
 @SuppressWarnings("serial")
 public class CreateNewSimpleUserSteps extends ScenarioSteps {
@@ -40,7 +40,7 @@ public class CreateNewSimpleUserSteps extends ScenarioSteps {
 
 	@Step
 	public void enter_lName(String lName) {
-		CreateNewSimpleUserPage.enter_firstName(lName);
+		CreateNewSimpleUserPage.enter_lastName(lName);
 	}
 
 	@Step
@@ -57,5 +57,23 @@ public class CreateNewSimpleUserSteps extends ScenarioSteps {
 	public void click_save_newUser() {
 		CreateNewSimpleUserPage.saveNewUser();
 	}
+	
+	@Step
+	public void enter_password1(String pass) {
+		CreateNewSimpleUserPage.enter_password1(pass);
+	}
+	
+	@Step
+	public void enter_password2(String pas) {
+		CreateNewSimpleUserPage.enter_password2(pas);
+	}
+	
+	@Step
+	public void add_net_department() {
+		CreateNewSimpleUserPage.click_selectDepartemntButton();
+		CreateNewSimpleUserPage.select_net_dep_from_users_and_organizations();
+		
+	}
+
 
 }

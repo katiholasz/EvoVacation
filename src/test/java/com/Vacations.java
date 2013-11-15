@@ -41,8 +41,7 @@ public class Vacations {
 		logIn.enter_user("holaszkati@ymail.com");
 		logIn.enter_passd("kati");
 		logIn.clickMe();
-		logIn.click_vacations();
-		
+		logIn.click_vacations();		
 	}
 
 }

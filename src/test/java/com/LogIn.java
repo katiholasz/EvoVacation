@@ -27,22 +27,24 @@ public class LogIn {
 	@Steps
 	public LogInSteps endUser;
 
+
 	@Test
 	public void Log_In() {
-		endUser.enter_user("amelia.ilies@evozon.com");
+		/*endUser.enter_user("amelia.ilies@evozon.com");
 		endUser.enter_passd("1234");
 		endUser.clickMe();
-		endUser.click_vacations();
+		endUser.click_vacations();*/
+		tools.GetEmail.email();
 
 	}
 
-    @Test
-    public void Log_In_DM() 
-    {
-       endUser.enter_user("holaszkati@ymail.com");
-       endUser.enter_passd("kati");
-       endUser.clickMe();
-       endUser.click_vacations();
-       
+	@Test
+	public void Log_In_DM() 
+	{
+		endUser.enter_user("holaszkati@ymail.com");
+		endUser.enter_passd("kati");
+		endUser.clickMe();
+		endUser.click_vacations();
+
 	}
 }
