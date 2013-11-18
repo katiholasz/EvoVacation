@@ -29,6 +29,9 @@ public class AssignVacationRequestPage extends PageObject {
 	@FindBy(css = ".aui-field-input-menu")
 	private WebElement AssignUser;
 
+	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_comment")
+	private WebElement AssignComment;
+	
 	@FindBy(css = "div.aui-dialog-ft button:first-child")
 	private WebElement OK;
 
@@ -38,6 +41,10 @@ public class AssignVacationRequestPage extends PageObject {
 		element(VacationRequestsBtn).waitUntilVisible();
 		element(VacationRequestsBtn).click();
 	}
+
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+        element(VacationRequestsActionBtn).shouldBeVisible();
+    }
 
 	public void click_VacationRequestsActionBtn() {
 		element(VacationRequestsActionBtn).waitUntilVisible();
@@ -54,11 +61,16 @@ public class AssignVacationRequestPage extends PageObject {
 		element(AssignUser).click();
 	}
 
-	public void click_to_a_person(String person) {
+	public void select_to_a_person(String person) {
 		element(AssignUser).waitUntilVisible();
 		AssignUser.click();
 		AssignUser.click();
 		element(AssignUser).selectByVisibleText(person);
+	}
+	
+	public void AssignComment(String keyword) {
+		element(AssignComment).waitUntilVisible();
+		element(AssignComment).type(keyword);
 	}
 	
 	public void click_OK() {
