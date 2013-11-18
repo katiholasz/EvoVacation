@@ -56,6 +56,7 @@ public class NewVacationRequestTest {
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.clickSaveBtn();
 		logIn.click_log_out();
+		logIn.assert_Home_page_should_be_visible();
 		// test 2 - CANCEL
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
@@ -70,6 +71,8 @@ public class NewVacationRequestTest {
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.click_button_cancel();
 		logIn.click_log_out();
+		logIn.assert_Home_page_should_be_visible();
+
 
 	}
 

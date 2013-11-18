@@ -49,6 +49,8 @@ public class EvoVacationHistoryTest {
 		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.assert_EvoVacationHistory_should_be_visible();
 		controlPanelSteps.click_EvoVacationHistory();
+		evoVacationHistorySteps.check_basic_search("Kati");
+		evoVacationHistorySteps.verifySearchResults("Kati");
 		evoVacationHistorySteps.check_AdvancedSearch();
 		evoVacationHistorySteps.select_tip_concediu("Concediu de odihna");
 		evoVacationHistorySteps.insert_firstName(Constants.FIRST_NAME_EVH );

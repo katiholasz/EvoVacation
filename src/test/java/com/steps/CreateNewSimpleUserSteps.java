@@ -69,6 +69,16 @@ public class CreateNewSimpleUserSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	public void click_PasswordLink() {
+		CreateNewSimpleUserPage.click_PasswordLink();
+	}
+	
+	@Step
+	public void click_SitesLink() {
+		CreateNewSimpleUserPage.click_SitesLink();
+	}
+	
+	@Step
 	public void add_net_department() {
 		CreateNewSimpleUserPage.click_selectDepartemntButton();
 		CreateNewSimpleUserPage.select_net_dep_from_users_and_organizations();

@@ -85,5 +85,15 @@ public class EvoVacationHistorySteps extends ScenarioSteps {
 		evoVacationHistoryPage.select_tip_concediu(tipConcediu);
 	 } 
 	
+	@Step
+	public void check_basic_search(String t) {
+		evoVacationHistoryPage.check_basic_search(t);
+	} 
+	
+	@Step
+	public void verifySearchResults(String t) {
+		evoVacationHistoryPage.verifySearchResults(t);
+	} 
+	
 
 }

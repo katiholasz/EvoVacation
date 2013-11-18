@@ -41,6 +41,7 @@ public class VacationsTest {
 		logIn.enter_user("holaszkati@ymail.com");
 		logIn.enter_passd("kati");
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		logIn.click_vacations();		
 	}
 

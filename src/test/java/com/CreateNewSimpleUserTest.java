@@ -60,20 +60,17 @@ public class CreateNewSimpleUserTest {
 		createNewSimpleUserSteps.enter_lName(Constants.NU_L_NAME);
 		createNewSimpleUserSteps.enter_pID(Constants.NU_PERS_ID);
 		createNewSimpleUserSteps.enter_birthPlace(Constants.NU_BIRTH_PLACE);
-		/*
 		createNewSimpleUserSteps.click_save_newUser();
-		createNewSimpleUserSteps.getDriver().get(Constants.ADD_PASS_URL);
+		createNewSimpleUserSteps.click_PasswordLink();
 		createNewSimpleUserSteps.enter_password1(Constants.NU_PASSWORD);
 		createNewSimpleUserSteps.enter_password2(Constants.NU_PASSWORD);
 		createNewSimpleUserSteps.click_save_newUser();
-		createNewSimpleUserSteps.getDriver().get(Constants.ADD_SITES_URL);
+		createNewSimpleUserSteps.click_SitesLink();
 		createNewSimpleUserSteps.add_net_department();
+		//createNewSimpleUserSteps.add_net_department();
 		
 		//createNewSimpleUserSteps.getDriver().get(Constants.ADD_ROLES_URL);
 		//createNewSimpleUserSteps.click_save_newUser();
-		 */
-
-
 	}
 
 }

@@ -3,8 +3,10 @@ package com.pages;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.Assert;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.pages.PageObject;
@@ -50,6 +52,9 @@ public class EvoVacationHistoryPage extends PageObject {
 	//Advanced Link / BUTTON
 	@FindBy(partialLinkText ="Basic")
 	public WebElement basicSearchLink;
+
+	@FindBy(id = "_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet_toggle_id_directory_history_searchkeywords")
+	public WebElement basicSearchField;
 
 	// web element - click Control Panel for "History"
 	@FindBy(id = "_160_portlet_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet")
@@ -144,7 +149,7 @@ public class EvoVacationHistoryPage extends PageObject {
 		{
 			element(vacationType_field).waitUntilVisible();
 			element(vacationType_field).click(); 
-			element(lastName_field).typeAndEnter(vacation_type);
+			element(vacationType_field).typeAndEnter(vacation_type);
 		}        
 	}
 
@@ -165,6 +170,68 @@ public class EvoVacationHistoryPage extends PageObject {
 				break;
 			}
 		}
+	}
+
+	public void check_basic_search(String t) 
+	{
+		if (!basicSearchField.isDisplayed())
+		{
+			throw new IllegalStateException("Vacation type is not displayed!");
+		} else
+		{
+			element(basicSearchField).waitUntilVisible();
+			element(basicSearchField).click(); 
+			element(basicSearchField).typeAndEnter(t);
+		}        
+	}
+
+	public void verifySearchResults(String... terms) {
+		String noOfPagesContainer = getDriver().findElement(By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
+				.getText().trim();
+		int noOfPages = getAllIntegerNumbersFromString(
+				noOfPagesContainer).get(1);
+		for (int i = 0; i < noOfPages; i++) {
+			List<WebElement> searchResults = getDriver().findElements(By.cssSelector("table.taglib-search-iterator tr.results-row"));
+			for (WebElement searchResult : searchResults) {
+				if ($(searchResult).isCurrentlyVisible()) {
+					for (String term : terms) {
+						if (!searchResult.getText().toLowerCase()
+								.contains(term.toLowerCase())) {
+							Assert.fail(String.format("The '%s' search result item does not contain '%s'!", searchResult.getText(), term));
+						}
+					}
+				}
+			}
+			if (i < noOfPages - 1) {
+				getDriver()
+				.findElement(
+						By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
+						.click();
+				waitABit(2000);
+			}
+		}
+	}
+
+	public static List<Integer> getAllIntegerNumbersFromString(String text) {
+		List<Integer> listOfIntegers = new ArrayList<Integer>();
+		String intNumber = "";
+		char[] characters = text.toCharArray();
+		boolean foundAtLeastOneInteger = false;
+		for (char ch : characters) {
+			if (Character.isDigit(ch)) {
+				intNumber += ch;
+			} else {
+				if (intNumber != "") {
+					foundAtLeastOneInteger = true;
+					listOfIntegers.add(Integer.parseInt(intNumber));
+					intNumber = "";
+				}
+			}
+		}
+		Assert.assertTrue(
+				"No matching integer was found in the provided string!",
+				foundAtLeastOneInteger);
+		return listOfIntegers;
 	}
 
 

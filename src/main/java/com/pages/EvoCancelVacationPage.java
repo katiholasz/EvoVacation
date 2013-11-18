@@ -1,7 +1,9 @@
 package com.pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.Assert;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.pages.PageObject;
@@ -89,9 +91,9 @@ public class EvoCancelVacationPage extends PageObject {
 			element(checkBetweenDates).click();
 		}
 	}
-	
+
 	public void assert_checkBox_CheckBetweenDates_should_be_Visible() {
-        element(checkBetweenDates).shouldBeVisible();
+		element(checkBetweenDates).shouldBeVisible();
 	}
 
 	// Cancel vacation request if exists - from - Evo cancel Vacation
@@ -157,4 +159,5 @@ public class EvoCancelVacationPage extends PageObject {
 		element(end_year_ECvS).selectByVisibleText(eYear);
 	}
 
+	
 }

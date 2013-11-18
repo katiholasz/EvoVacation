@@ -50,6 +50,12 @@ public class CreateNewSimpleUserPage extends PageObject {
 
 	@FindBy(css= "td[id*=\"net-department\"] a")
 	private WebElement netDepartmentFromModal;
+	
+	@FindBy(id= "_125_passwordLink")
+	private WebElement passwordLink;
+	
+	@FindBy(id= "_125_sitesLink")
+	private WebElement sitesLink;
 
 
 	// ------------------- METHODS -------------
@@ -132,6 +138,16 @@ public class CreateNewSimpleUserPage extends PageObject {
 	public void click_selectDepartemntButton(){
 		element(selectDepartemntButton).waitUntilVisible();
 		selectDepartemntButton.click();
+	}
+	
+	public void click_PasswordLink(){
+		element(passwordLink).waitUntilVisible();
+		passwordLink.click();
+	}
+	
+	public void click_SitesLink(){
+		element(sitesLink).waitUntilVisible();
+		sitesLink.click();
 	}
 
 	public void select_net_dep_from_users_and_organizations(){
