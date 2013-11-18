@@ -19,23 +19,24 @@ import com.steps.LogInSteps;
 public class LogOutTest 
 {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
-    public Pages pages;
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
+	public Pages pages;
 
-    @Steps
-    public LogInSteps endUser;
-    
-    @Test
-    public void Log_Out() 
-    {
-       endUser.enter_user("holaszkati@ymail.com");
-       endUser.enter_passd("kati");
-       endUser.clickMe();
-       endUser.click_log_out();
-       endUser.assert_Home_page_should_be_visible();
-       
- }
+	@Steps
+	public LogInSteps endUser;
+
+	@Test
+	public void Log_Out() 
+	{
+		webdriver.manage().window().maximize();
+		endUser.enter_user("holaszkati@ymail.com");
+		endUser.enter_passd("kati");
+		endUser.clickMe();
+		endUser.click_log_out();
+		endUser.assert_Home_page_should_be_visible();
+
+	}
 }

@@ -79,5 +79,11 @@ public class EvoVacationHistorySteps extends ScenarioSteps {
 		//evoVacationHistoryPage.send_enter();
 
 	}
+	
+	@Step
+	 public void select_tip_concediu(String tipConcediu) {
+		evoVacationHistoryPage.select_tip_concediu(tipConcediu);
+	 } 
+	
 
 }

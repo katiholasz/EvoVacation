@@ -37,4 +37,8 @@ public class VacationPage extends PageObject {
 		element(addVacation).waitUntilVisible();
 		element(addVacation).click();
 	}
+	
+	public void assert_NewVacationRequest_button_should_be_visible() {
+        element(addVacation).shouldBeVisible();
+    }
 }

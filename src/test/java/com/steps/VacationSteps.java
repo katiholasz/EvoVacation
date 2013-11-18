@@ -33,4 +33,10 @@ public class VacationSteps extends ScenarioSteps {
 	}
 	
 	
+	@Step
+	public void assert_NewVacationRequest_button_should_be_visible() {
+		vacationPage.assert_NewVacationRequest_button_should_be_visible();
+	}
+	
+	
 }

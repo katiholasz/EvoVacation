@@ -27,6 +27,7 @@ public class EvoVacationHistoryTest {
 	public WebDriver webdriver;
 
 	@ManagedPages(defaultUrl = "http://localhost:9090/")
+	
 	public Pages pages;
 
 	@Steps
@@ -45,8 +46,11 @@ public class EvoVacationHistoryTest {
 		logIn.clickMe();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
+		controlPanelSteps.assert_EvoVacationHistory_should_be_visible();
 		controlPanelSteps.click_EvoVacationHistory();
 		evoVacationHistorySteps.check_AdvancedSearch();
+		evoVacationHistorySteps.select_tip_concediu("Concediu de odihna");
 		evoVacationHistorySteps.insert_firstName(Constants.FIRST_NAME_EVH );
 		//evoVacationHistorySteps.send_enter();
 		evoVacationHistorySteps.insert_LastName(Constants.LAST_NAME_EVH);

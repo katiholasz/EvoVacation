@@ -89,6 +89,10 @@ public class EvoCancelVacationPage extends PageObject {
 			element(checkBetweenDates).click();
 		}
 	}
+	
+	public void assert_checkBox_CheckBetweenDates_should_be_Visible() {
+        element(checkBetweenDates).shouldBeVisible();
+	}
 
 	// Cancel vacation request if exists - from - Evo cancel Vacation
 	public void cancelVacationRequest_ifExists() {
