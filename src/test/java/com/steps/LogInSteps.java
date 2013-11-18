@@ -62,6 +62,12 @@ public class LogInSteps extends ScenarioSteps {
 	{
 		dictionaryPage.assert_SignOut_link_should_be_visible();
 	}
+	
+	@Step
+	public void assert_Home_page_should_be_visible()
+	{
+		dictionaryPage.assert_Home_page_should_be_visible();
+	}
 
 	
 }

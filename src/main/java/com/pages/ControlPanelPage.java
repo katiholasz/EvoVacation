@@ -38,6 +38,9 @@ public class ControlPanelPage extends PageObject {
 	// web element - click Control Panel for "Evo Cancel Vacation"
 	@FindBy(id = "_160_portlet_125")
 	public WebElement goTo_UsersAndOrganisation;
+	
+	@FindBy(css = ".portal-add-content")
+	public WebElement controlPanel_rightMenu;
 
 	// -- METHODS --
 	public void click_GoTo() {
@@ -50,6 +53,16 @@ public class ControlPanelPage extends PageObject {
 	public void click_ControlPanel() {
 		element(goTo_ControlPanel).waitUntilVisible();
 		goTo_ControlPanel.click();
+	}
+
+	public void assert_MyFreeDays_page_should_be_visible() {
+		waitForTitleToAppear("My Free Days - Evoportal");
+		element(goTo_MyFreeDays).shouldBeVisible();
+	}
+	
+	public void assert_ControlPanel_should_be_visible() {
+		waitForTitleToAppear("Control Panel - Evoportal");
+		element(controlPanel_rightMenu).shouldBeVisible();
 	}
 
 	public void click_MyFreeDays() {

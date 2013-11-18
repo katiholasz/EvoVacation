@@ -1,4 +1,6 @@
 package com.pages;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
@@ -40,6 +42,12 @@ public class LogInPage extends PageObject {
 	
     public void assert_SignOut_link_should_be_visible() {
         element(logOut).shouldBeVisible();
+    }
+    
+    public void assert_Home_page_should_be_visible() {
+    	 waitForTitleToAppear("Home - Evoportal");
+         assertThat(getDriver().getCurrentUrl(), is("http://172.22.8.39:9090/home"));
+
     }
 
 	public void LogOut() 

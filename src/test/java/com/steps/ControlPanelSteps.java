@@ -37,6 +37,12 @@ public class ControlPanelSteps extends ScenarioSteps {
     {
     	contolPanelPage.click_MyFreeDays();
     }
+    
+    @Step
+    public void assert_MyFreeDays_page_should_be_visible() 
+    {
+    	contolPanelPage.assert_MyFreeDays_page_should_be_visible();
+    }
 
     @Step
     public void click_EvoVacationHistory()

@@ -45,7 +45,9 @@ public class MyFreeDaysTest {
 		logIn.clickMe();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
+		//controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_MyFreeDays();
+		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeCurrentYear(Constants.FREE_CURRENT_YEAR);
 		myFreeDaysSteps.enter_freeFromLastYear(Constants.FREE_LAST_YEAR);
 		myFreeDaysSteps.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING);
@@ -58,6 +60,7 @@ public class MyFreeDaysTest {
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
 		controlPanelSteps.click_MyFreeDays();
+		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeCurrentYear(Constants.FREE_CURRENT_YEAR_1);
 		myFreeDaysSteps.enter_freeFromLastYear(Constants.FREE_LAST_YEAR_1);
 		myFreeDaysSteps.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING_1);
@@ -70,6 +73,7 @@ public class MyFreeDaysTest {
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
 		controlPanelSteps.click_MyFreeDays();
+		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeCurrentYear(Constants.FREE_CURRENT_YEAR_2);
 		myFreeDaysSteps.enter_freeFromLastYear(Constants.FREE_LAST_YEAR_2);
 		myFreeDaysSteps.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING_2);

@@ -35,6 +35,7 @@ public class LogOutTest
        endUser.enter_passd("kati");
        endUser.clickMe();
        endUser.click_log_out();
+       endUser.assert_Home_page_should_be_visible();
        
  }
 }
