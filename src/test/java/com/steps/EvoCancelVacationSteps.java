@@ -35,6 +35,12 @@ public class EvoCancelVacationSteps extends ScenarioSteps {
 	{
 		evoCancelVacationPage.check_CheckBetweenDates();
 	}
+	
+	@Step
+	public void assert_checkBox_CheckBetweenDates_should_be_Visible() 
+	{
+		evoCancelVacationPage.assert_checkBox_CheckBetweenDates_should_be_Visible();
+	}
 
 	@Step
 	public void unclick_SearchBetweenDates() 

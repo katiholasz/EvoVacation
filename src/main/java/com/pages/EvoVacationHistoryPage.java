@@ -3,6 +3,7 @@ package com.pages;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.By;
@@ -54,6 +55,11 @@ public class EvoVacationHistoryPage extends PageObject {
 	@FindBy(id = "_160_portlet_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet")
 	public WebElement goTo_EvoVacationHistory;
 
+	@FindBy(css =".tip-concediu-label")
+	private WebElement ddlTipConcediu;
+
+	@FindBy(css ="ul.concediu-ul")
+	private WebElement concediuListContainer;
 	// ---------------------------------- METHODS --------------------------------------------------
 	public void refresh_page()
 	{
@@ -73,14 +79,17 @@ public class EvoVacationHistoryPage extends PageObject {
 
 	public void checkAdvancedSearch() 
 	{
-		if (advancedSearchLink.isDisplayed())
+		if (!advancedSearchLink.isDisplayed())
 		{
-			element(advancedSearchLink).waitUntilVisible();
-			element(advancedSearchLink).click(); 
+			refresh_page();
 		} 
 		else
 		{
-			refresh_page();
+			if (advancedSearchLink.isDisplayed())
+			{
+				element(advancedSearchLink).waitUntilVisible();
+				element(advancedSearchLink).click(); 
+			}
 		}
 	}
 
@@ -139,6 +148,24 @@ public class EvoVacationHistoryPage extends PageObject {
 		}        
 	}
 
+	public void select_tip_concediu(String checkName)
+	{
+		element(ddlTipConcediu).waitUntilVisible();
+		element(ddlTipConcediu).click();
+
+		element(concediuListContainer).waitUntilVisible();
+
+		List<WebElement> checkList = concediuListContainer.findElements(By.cssSelector("li span.aui-field-content"));
+
+		for(WebElement elementNow:checkList){
+			String currentTerm = elementNow.getText();
+			System.out.println("Current term: " + currentTerm);
+			if(currentTerm.contains(checkName)){
+				elementNow.findElement(By.cssSelector("input:last-child")).click();
+				break;
+			}
+		}
+	}
 
 
 

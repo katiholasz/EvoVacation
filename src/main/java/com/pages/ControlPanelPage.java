@@ -74,6 +74,11 @@ public class ControlPanelPage extends PageObject {
 		element(goTo_EvoVacationHistory).waitUntilVisible();
 		goTo_EvoVacationHistory.click();
 	}
+	
+	public void assert_EvoVacationHistory_should_be_visible() {
+		element(goTo_EvoVacationHistory).shouldBeVisible();
+	}
+
 
 	public void click_EvoCancelVacation() {
 		element(goTo_EvoCancelVacation).waitUntilVisible();

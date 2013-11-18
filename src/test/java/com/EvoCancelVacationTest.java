@@ -43,9 +43,12 @@ public class EvoCancelVacationTest {
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_EvoCancelVacation();
+		evoCancelVacationsteps.assert_checkBox_CheckBetweenDates_should_be_Visible();
 		evoCancelVacationsteps.click_SearchBetweenDates();
 		evoCancelVacationsteps.cancelExistingRequest();
 	}

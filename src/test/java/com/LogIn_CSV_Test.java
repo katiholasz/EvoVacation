@@ -64,16 +64,15 @@ public class LogIn_CSV_Test {
 	@Issue("#Login-1")
 	@Test
 	public void InsertUserName() throws MessagingException, IOException {
-//		endUser.enter_user(getUsername());
-//		endUser.enter_passd(getPassword());
-//		endUser.clickMe();
-//		endUser.assert_SignOut_link_should_be_visible();
-//		vacationSteps.assert_vacation_link_should_be_visible();
-//		endUser.click_vacations();
-//		vacationSteps.click_addNewVacation();
-		//tools.GetEmail.vacation_approved_email();
-		tools.CompareEmails.getEmails();
-		//tools.GetEmail.vacation_approved_email();
+		webdriver.manage().window().maximize();
+		endUser.enter_user(getUsername());
+		endUser.enter_passd(getPassword());
+		endUser.clickMe();
+		endUser.assert_SignOut_link_should_be_visible();
+		vacationSteps.assert_vacation_link_should_be_visible();
+		endUser.click_vacations();
+		vacationSteps.assert_NewVacationRequest_button_should_be_visible();
+		vacationSteps.click_addNewVacation();
 	}
 
 }

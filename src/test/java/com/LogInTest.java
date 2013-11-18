@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
 import org.junit.Test;
@@ -15,7 +16,8 @@ import com.requirements.Application;
 import com.steps.LogInSteps;
 
 @Story(Application.Login.LogIn.class)
-@RunWith(ThucydidesRunner.class)
+@RunWith(ThucydidesParameterizedRunner.class)
+
 public class LogInTest {
 
 	@Managed(uniqueSession = true)
@@ -30,6 +32,7 @@ public class LogInTest {
 
 	@Test
 	public void Log_In() {
+		webdriver.manage().window().maximize();
 		endUser.enter_user("amelia.ilies@evozon.com");
 		endUser.enter_passd("1234");
 		endUser.clickMe();
@@ -41,6 +44,7 @@ public class LogInTest {
 	@Test
 	public void Log_In_DM() 
 	{
+		webdriver.manage().window().maximize();
 		endUser.enter_user("holaszkati@ymail.com");
 		endUser.enter_passd("kati");
 		endUser.clickMe();

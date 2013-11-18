@@ -85,9 +85,12 @@ public class MyFreeDays_CSV_Test {
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_MyFreeDays();
+		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeFromLastYear(get_freeLastYear());
 		myFreeDaysSteps.enter_freeCurrentYear(get_freeCurrentYear());
 		myFreeDaysSteps.enter_monthsExpBeforeHiring(get_monthExpBeforeHiring());
