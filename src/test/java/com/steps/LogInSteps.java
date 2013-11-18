@@ -4,8 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import com.MyVacationCompletedRequest;
-import com.MyVacationRequest;
+import com.MyVacationCompletedRequestTest;
+import com.MyVacationRequestTest;
 import com.pages.LogInPage;
 import com.pages.VacationPage;
 import com.pages.ApproveVacationRequestsPage;
@@ -15,8 +15,8 @@ public class LogInSteps extends ScenarioSteps {
 
 	LogInPage dictionaryPage;
 	VacationPage vacationPage;
-	MyVacationCompletedRequest myvacationcompletedrequestsPage;
-	MyVacationRequest myvacationrequestsPage;
+	MyVacationCompletedRequestTest myvacationcompletedrequestsPage;
+	MyVacationRequestTest myvacationrequestsPage;
 	ApproveVacationRequestsPage vacationrequestsPage;
 
 	public LogInSteps(Pages pages) {
@@ -56,6 +56,12 @@ public class LogInSteps extends ScenarioSteps {
     {
      dictionaryPage.LogOut();
     }
+	
+	@Step
+	public void assert_SignOut_link_should_be_visible()
+	{
+		dictionaryPage.assert_SignOut_link_should_be_visible();
+	}
 
 	
 }

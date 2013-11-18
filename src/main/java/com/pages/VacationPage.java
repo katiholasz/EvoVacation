@@ -24,6 +24,10 @@ public class VacationPage extends PageObject {
 		element(vacation).waitUntilVisible();
 		element(vacation).click();
 	}
+	
+    public void assert_vacation_link_should_be_visible() {
+        element(vacation).shouldBeVisible();
+    }
 
 	public void AddNewVacation() {
 		element(addVacation).waitUntilVisible();

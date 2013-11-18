@@ -21,4 +21,11 @@ public class VacationSteps extends ScenarioSteps {
 	public void click_addNewVacation() {
 		vacationPage.AddNewVacation();
 	}
+	
+	@Step
+	public void assert_vacation_link_should_be_visible() {
+		vacationPage.assert_vacation_link_should_be_visible();
+	}
+	
+	
 }

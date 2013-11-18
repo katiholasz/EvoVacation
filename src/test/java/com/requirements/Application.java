@@ -1,7 +1,7 @@
 package com.requirements;
 
 import net.thucydides.core.annotations.Feature;
-import net.thucydides.junit.annotations.UseTestDataFrom;
+//import net.thucydides.junit.annotations.UseTestDataFrom;
 
 
 public class Application {
@@ -16,11 +16,11 @@ public class Application {
        public class LogOut {}   
    }
 	
-   @UseTestDataFrom("users.cvs")
-   public class LogIn_param
-   {
-	   public class LogIn_p {}    
-   }
+//   @UseTestDataFrom("users.cvs")
+//   public class LogIn_param
+//   {
+//	   public class LogIn_p {}    
+//   }
 
 	
 	

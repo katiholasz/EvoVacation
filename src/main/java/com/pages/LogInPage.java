@@ -37,6 +37,10 @@ public class LogInPage extends PageObject {
 	public void submit() {
 		element(signin).click();
 	}
+	
+    public void assert_SignOut_link_should_be_visible() {
+        element(logOut).shouldBeVisible();
+    }
 
 	public void LogOut() 
 	  {
