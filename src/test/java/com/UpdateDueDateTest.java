@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.LogInSteps;
 import com.steps.UpdateDueDateSteps;
+import com.steps.VacationSteps;
 
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
@@ -30,6 +31,9 @@ public class UpdateDueDateTest {
 
 	@Steps
 	public LogInSteps endUser;
+	
+	@Steps
+	public VacationSteps vacationSteps;
 
 	@Steps
 	public UpdateDueDateSteps datePicker;

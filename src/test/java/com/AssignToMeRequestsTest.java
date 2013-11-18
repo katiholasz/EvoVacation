@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.AssignToMeRequestsSteps;
 import com.steps.LogInSteps;
+import com.steps.VacationSteps;
 
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
@@ -30,6 +31,9 @@ public class AssignToMeRequestsTest {
 
 	@Steps
 	public LogInSteps endUser;
+	
+	@Steps
+	public VacationSteps vacationSteps;
 
 	@Steps
 	public AssignToMeRequestsSteps assignTo;
@@ -39,9 +43,9 @@ public class AssignToMeRequestsTest {
 		logIn.enter_user("amelia.ilies@evozon.com");
 		logIn.enter_passd("1234");
 		logIn.clickMe();
+		vacationSteps.assert_vacation_is_visible();
 		endUser.click_vacations();
-		assignTo.click_VacationRequestsBtn();
-		assignTo.assert_VacationRequestsActionBtn_should_be_visible();
+		vacationSteps.assert_vacation_link_should_be_visible();
 		assignTo.click_VacationRequestsActionBtn();
 		assignTo.click_AssignToMeBtn();
 		assignTo.enter_Comment("test");

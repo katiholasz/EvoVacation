@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.LogInSteps;
 import com.steps.ApproveVacationRequestsSteps;
+import com.steps.VacationSteps;
 
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
@@ -27,24 +28,29 @@ public class ApproveVacationRequestsTest {
 
 	@Steps
 	public LogInSteps logIn;
+	
+	@Steps
+	public VacationSteps vacationSteps;
 
 	@Steps
 	public LogInSteps endUser;
+	
+	
 
 	@Steps
-	public ApproveVacationRequestsSteps endUser1;
+	public ApproveVacationRequestsSteps approveRequests;
 
 	@Test
 	public void Log_In() {
 		logIn.enter_user("amelia.ilies@evozon.com");
 		logIn.enter_passd("1234");
 		logIn.clickMe();
+		vacationSteps.assert_vacation_is_visible();
 		endUser.click_vacations();
-		endUser1.click_VacationRequestsBtn();
-		endUser1.assert_VacationRequestsActionBtn_should_be_visible();
-		endUser1.click_VacationRequestsActionBtn();
-		endUser1.click_ApproveBtn();
-		endUser1.click_VacationRequestsBtn();
+		vacationSteps.assert_vacation_link_should_be_visible();
+		approveRequests.click_VacationRequestsActionBtn();
+		approveRequests.click_ApproveBtn();
+		approveRequests.click_VacationRequestsBtn();
 	}
 
 }

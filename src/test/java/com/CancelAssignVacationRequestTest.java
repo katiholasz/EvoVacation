@@ -15,6 +15,7 @@ import com.requirements.Application;
 import com.steps.AssignVacationRequestSteps;
 import com.steps.CancelAssignVacationRequestSteps;
 import com.steps.LogInSteps;
+import com.steps.VacationSteps;
 
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
@@ -31,6 +32,9 @@ public class CancelAssignVacationRequestTest {
 
 	@Steps
 	public LogInSteps endUser;
+	
+	@Steps
+	public VacationSteps vacationSteps;
 
 	@Steps
 	public AssignVacationRequestSteps endUser1;
@@ -46,6 +50,7 @@ public class CancelAssignVacationRequestTest {
 		logIn.enter_user("amelia.ilies@evozon.com");
 		logIn.enter_passd("1234");
 		logIn.clickMe();
+		vacationSteps.assert_vacation_is_visible();
 		endUser.click_vacations();
 		endUser1.click_VacationRequestsBtn();
 		endUser1.assert_VacationRequestsActionBtn_should_be_visible();

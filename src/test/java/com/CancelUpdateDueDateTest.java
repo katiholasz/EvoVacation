@@ -15,6 +15,7 @@ import com.requirements.Application;
 import com.steps.CancelUpdateDueDateSteps;
 import com.steps.LogInSteps;
 import com.steps.UpdateDueDateSteps;
+import com.steps.VacationSteps;
 
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
@@ -31,23 +32,27 @@ public class CancelUpdateDueDateTest {
 
 	@Steps
 	public LogInSteps endUser;
+	
+	@Steps
+	public VacationSteps vacationSteps;
 
 	@Steps
 	public UpdateDueDateSteps endUser1;
 
 	@Steps
-	public CancelUpdateDueDateSteps endUser2;
+	public CancelUpdateDueDateSteps cancelRequest;
 
 	@Test
 	public void Log_In() {
 		logIn.enter_user("amelia.ilies@evozon.com");
 		logIn.enter_passd("1234");
 		logIn.clickMe();
+		vacationSteps.assert_vacation_is_visible();
 		endUser.click_vacations();
 		endUser1.click_VacationRequestsBtn();
-		endUser2.assert_VacationRequestsActionBtn_should_be_visible();
+		cancelRequest.assert_VacationRequestsActionBtn_should_be_visible();
 		endUser1.click_VacationRequestsActionBtn();
 		endUser1.click_UpdateBtn();
-		endUser2.click_cancelBtn();
+		cancelRequest.click_cancelBtn();
 	}
 }
