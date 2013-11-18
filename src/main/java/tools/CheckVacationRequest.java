@@ -48,11 +48,11 @@ public class CheckVacationRequest
 					email_content = message.getContent().toString();
 
 					//if(email_date==tools.Constants.EMAIL_RECIEVED_DATE || email_sender==tools.Constants.EMAIL_FROM || email_subject == tools.Constants.EMAIL_SUBJECT_APPROVED){
-					if( email_sender.toString().toLowerCase().contains(tools.Constants.EMAIL_FROM.toString().toLowerCase()) 
-							&& email_subject.toString().toLowerCase().contains(tools.Constants.EMAIL_SUBJECT_APPROVED.toString().toLowerCase())
+					if( email_sender.toLowerCase().contains(tools.Constants.EMAIL_FROM.toLowerCase()) 
+							&& email_subject.toLowerCase().contains(tools.Constants.EMAIL_SUBJECT_APPROVED.toLowerCase())
 							//	&& email_date.toString().toLowerCase().contains(tools.Constants.EMAIL_RECIEVED_DATE.toString().toLowerCase())
 							//&& email_sent_date.toString().toLowerCase().contains(email_received_date.toString().toLowerCase())
-							&& email_content.toString().toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toString().toLowerCase())){
+							&& email_content.toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toLowerCase())){
 						match_found=true;
 						//System.out.println("MATCH FOUND");
 					}else
@@ -94,7 +94,7 @@ public class CheckVacationRequest
 				try {
 					DateFormat dateFormat = new SimpleDateFormat("EEE MMM d yyyy, 'Hour:' HH");
 					Calendar cal = Calendar.getInstance();
-					
+
 					cureent_date=dateFormat.format(cal.getTime());
 
 					sent_date =dateFormat.format(message.getSentDate());
@@ -108,15 +108,15 @@ public class CheckVacationRequest
 					{
 						if(email_subject.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_SUBJECT_REJECTED.toString().toLowerCase())){
 							if(email_content.toString().toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toString().toLowerCase()))
+							{
+								match_found=true;
+							}
+						}else
 						{
-							match_found=true;
+							System.out.println("NO MATCH FOUND");
 						}
-					}else
-					{
-						System.out.println("NO MATCH FOUND");
 					}
-					}
-					
+
 					if(match_found){
 						System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
 						System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
@@ -139,7 +139,7 @@ public class CheckVacationRequest
 			System.out.println(e.toString());
 		}
 	}
-	
+
 	static public void checked_email_if_user_submited_new_vacation_request(Folder inbox) {			
 		try {
 			Message msg[] = inbox.getMessages();
@@ -149,25 +149,25 @@ public class CheckVacationRequest
 				try {
 					DateFormat dateFormat = new SimpleDateFormat("EEE MMM d yyyy, 'Hour:' HH");
 					Calendar cal = Calendar.getInstance();
-					
+
 					cureent_date=dateFormat.format(cal.getTime());
-					
+
 					sent_date =dateFormat.format(message.getSentDate());
 					email_sent_date = message.getSentDate().toString();
 					email_received_date = message.getReceivedDate().toString();
 					email_sender = message.getFrom()[0].toString();
 					email_subject = message.getSubject().toString();
 					email_content = message.getContent().toString();
-					
+
 					if( email_sender.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_FROM.toString().toLowerCase()) 
-						&& email_subject.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_SUBJECT_NEW_REQUEST.toString().toLowerCase())
-						&& email_content.toString().toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toString().toLowerCase())){
+							&& email_subject.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_SUBJECT_NEW_REQUEST.toString().toLowerCase())
+							&& email_content.toString().toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toString().toLowerCase())){
 						match_found=true;
 					}/*else
 					{
 						System.out.println("NO MATCH FOUND");
 					}*/
-					
+
 					if(match_found){
 						System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
 						System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
@@ -176,7 +176,7 @@ public class CheckVacationRequest
 						System.out.println("FROM: \t "+ message.getFrom()[0].toString());
 						System.out.println("SUBJECT: \t"+ message.getSubject().toString());
 						System.out.println("CONTENT: \t"+ message.getContent().toString());
-						
+
 						System.out.println("MATCH FOUND");
 					}else{
 						System.out.println("NO MATCH FOUND");

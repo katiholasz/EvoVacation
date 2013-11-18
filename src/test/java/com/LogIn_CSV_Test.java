@@ -17,6 +17,8 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.LogInSteps;
 import com.steps.VacationSteps;
+import tools.CheckVacationRequest;
+import tools.GetEmail;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesParameterizedRunner.class)
@@ -57,11 +59,14 @@ public class LogIn_CSV_Test {
 	@Issue("#Login-1")
 	@Test
 	public void InsertUserName() {
-		endUser.enter_user(getUsername());
-		endUser.enter_passd(getPassword());
-		endUser.clickMe();
-		endUser.click_vacations();
-		vacationSteps.click_addNewVacation();
+//		endUser.enter_user(getUsername());
+//		endUser.enter_passd(getPassword());
+//		endUser.clickMe();
+//		endUser.assert_SignOut_link_should_be_visible();
+//		vacationSteps.assert_vacation_link_should_be_visible();
+//		endUser.click_vacations();
+//		vacationSteps.click_addNewVacation();
+		tools.GetEmail.vacation_approved_email();
 	}
 
 }
