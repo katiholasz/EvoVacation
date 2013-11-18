@@ -159,19 +159,22 @@ public class CheckVacationRequest
 					email_subject = message.getSubject().toString();
 					email_content = message.getContent().toString();
 
-					if( email_sender.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_FROM.toString().toLowerCase()) 
-							&& email_subject.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_SUBJECT_NEW_REQUEST.toString().toLowerCase())
-							&& email_content.toString().toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toString().toLowerCase())){
+					if( email_sender.contentEquals(tools.Constants.EMAIL_FROM)) 
+						//	&& email_subject.toString().toLowerCase().equalsIgnoreCase(tools.Constants.EMAIL_SUBJECT_NEW_REQUEST.toString().toLowerCase())
+						//	&& email_content.toString().toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER.toString().toLowerCase())){
 						match_found=true;
-					}/*else
+					System.out.println(email_sender);
+					System.out.println(tools.Constants.EMAIL_FROM);
+
+					
+					/*else
 					{
 						System.out.println("NO MATCH FOUND");
 					}*/
-
 					if(match_found){
-						System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
-						System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
-						System.out.println("RECEIVED DATE: \t" + dateFormat.format(message.getReceivedDate()));
+//						System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
+//						System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
+//						System.out.println("RECEIVED DATE: \t" + dateFormat.format(message.getReceivedDate()));
 						System.out.println("...........................................");
 						System.out.println("FROM: \t "+ message.getFrom()[0].toString());
 						System.out.println("SUBJECT: \t"+ message.getSubject().toString());
