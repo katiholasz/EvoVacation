@@ -1,5 +1,9 @@
 package com;
 
+import java.io.IOException;
+
+import javax.mail.MessagingException;
+
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
@@ -17,6 +21,7 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.LogInSteps;
 import com.steps.VacationSteps;
+
 import tools.CheckVacationRequest;
 import tools.GetEmail;
 
@@ -58,7 +63,7 @@ public class LogIn_CSV_Test {
 
 	@Issue("#Login-1")
 	@Test
-	public void InsertUserName() {
+	public void InsertUserName() throws MessagingException, IOException {
 //		endUser.enter_user(getUsername());
 //		endUser.enter_passd(getPassword());
 //		endUser.clickMe();
@@ -66,7 +71,9 @@ public class LogIn_CSV_Test {
 //		vacationSteps.assert_vacation_link_should_be_visible();
 //		endUser.click_vacations();
 //		vacationSteps.click_addNewVacation();
-		tools.GetEmail.vacation_approved_email();
+		//tools.GetEmail.vacation_approved_email();
+		tools.CompareEmails.getEmails();
+		//tools.GetEmail.vacation_approved_email();
 	}
 
 }
