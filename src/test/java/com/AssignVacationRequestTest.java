@@ -44,9 +44,11 @@ public class AssignVacationRequestTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		endUser1.click_VacationRequestsBtn();
+		endUser1.assert_VacationRequestsActionBtn_should_be_visible();
 		endUser1.click_VacationRequestsActionBtn();
 		endUser1.click_AssignToBtn();
-		assignTo.select_a_person("Holasz Kati");
+		assignTo.click_a_person("Holasz Kati");
+		assignTo.enter_AssignComment("test");
 		endUser1.click_Ok();
 
 	}

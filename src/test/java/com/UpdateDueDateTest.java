@@ -32,7 +32,7 @@ public class UpdateDueDateTest {
 	public LogInSteps endUser;
 
 	@Steps
-	public UpdateDueDateSteps endUser1;
+	public UpdateDueDateSteps datePicker;
 
 	@Test
 	public void Log_In() {
@@ -40,9 +40,17 @@ public class UpdateDueDateTest {
 		logIn.enter_passd("1234");
 		logIn.clickMe();
 		endUser.click_vacations();
-		endUser1.click_VacationRequestsBtn();
-		endUser1.click_VacationRequestsActionBtn();
-		endUser1.click_UpdateBtn();
-		endUser1.click_OkBtn();
+		datePicker.click_VacationRequestsBtn();
+		datePicker.click_VacationRequestsActionBtn();
+		datePicker.click_UpdateBtn();
+		datePicker.select_Month("July");
+		datePicker.select_Day("28");
+		datePicker.select_Year("2014");
+		datePicker.select_Hour("7");
+		datePicker.select_Minute(":01");
+		datePicker.select_AmPm("AM");
+		datePicker.enter_UpdateComment("test");
+		datePicker.click_OkBtn();
+
 	}
 }

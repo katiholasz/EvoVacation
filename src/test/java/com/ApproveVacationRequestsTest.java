@@ -15,7 +15,7 @@ import com.requirements.Application;
 import com.steps.LogInSteps;
 import com.steps.ApproveVacationRequestsSteps;
 
-@Story(Application.Logout.class)
+@Story(Application.class)
 @RunWith(ThucydidesRunner.class)
 public class ApproveVacationRequestsTest {
 
@@ -41,8 +41,10 @@ public class ApproveVacationRequestsTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		endUser1.click_VacationRequestsBtn();
+		endUser1.assert_VacationRequestsActionBtn_should_be_visible();
 		endUser1.click_VacationRequestsActionBtn();
 		endUser1.click_ApproveBtn();
+		endUser1.click_VacationRequestsBtn();
 	}
 
 }

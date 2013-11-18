@@ -26,7 +26,7 @@ public class AssignToMeRequestsPage extends PageObject{
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_comment")
 	private WebElement Comment;
 	
-	@FindBy(css = "aui-toolbar-first")
+	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
 	private WebElement ConfirmAssignToMe;
 
 	public void click_VacationRequestsBtn() {

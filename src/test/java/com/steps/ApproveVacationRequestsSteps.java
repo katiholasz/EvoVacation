@@ -23,6 +23,11 @@ public class ApproveVacationRequestsSteps extends ScenarioSteps {
 	}
 
 	@Step
+	 public void assert_VacationRequestsActionBtn_should_be_visible() {
+		approvevacationrequests.assert_VacationRequestsActionBtn_should_be_visible();
+	 }
+
+	@Step
 	public void click_VacationRequestsActionBtn() {
 		approvevacationrequests.click_VacationRequestsActionBtn();
 	}
@@ -34,5 +39,4 @@ public class ApproveVacationRequestsSteps extends ScenarioSteps {
 
 }
 	
-	
-   
+	   
