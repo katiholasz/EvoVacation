@@ -28,6 +28,10 @@ public class RejectVacationRequestsPage extends PageObject {
 		element(VacationRequestsBtn).click();
 	}
 
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+        element(VacationRequestsActionBtn).shouldBeVisible();
+	 }
+	
 	public void click_VacationRequestsActionBtn() {
 		element(VacationRequestsActionBtn).waitUntilVisible();
 		element(VacationRequestsActionBtn).click();

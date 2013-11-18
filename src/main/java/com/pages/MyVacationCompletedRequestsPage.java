@@ -17,6 +17,10 @@ public class MyVacationCompletedRequestsPage extends PageObject {
 	@FindBy(css = "a[href*=my-completed-requests]")
 	private WebElement MyVacationCompletedRequestsBtn;
 
+	public void assert_MyVacationCompletedRequests_link_should_be_visible() {
+		element(MyVacationCompletedRequestsBtn).shouldBeVisible();
+	}
+
 	public void click_MyVacationCompletedRequestsBtn() {
 		element(MyVacationCompletedRequestsBtn).click();
 	}

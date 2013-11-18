@@ -45,6 +45,7 @@ public class CancelUpdateDueDateTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		endUser1.click_VacationRequestsBtn();
+		endUser2.assert_VacationRequestsActionBtn_should_be_visible();
 		endUser1.click_VacationRequestsActionBtn();
 		endUser1.click_UpdateBtn();
 		endUser2.click_cancelBtn();

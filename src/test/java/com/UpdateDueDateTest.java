@@ -41,6 +41,7 @@ public class UpdateDueDateTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		datePicker.click_VacationRequestsBtn();
+		datePicker.assert_VacationRequestsActionBtn_should_be_visible();
 		datePicker.click_VacationRequestsActionBtn();
 		datePicker.click_UpdateBtn();
 		datePicker.select_Month("July");

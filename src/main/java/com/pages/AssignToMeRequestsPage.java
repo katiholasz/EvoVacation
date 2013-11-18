@@ -18,7 +18,7 @@ public class AssignToMeRequestsPage extends PageObject{
 	private WebElement VacationRequestsBtn;
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_2_1_menuButton")
-	private WebElement RequestsActionBtn;
+	private WebElement VacationRequestsActionBtn;
 
 	@FindBy(css = ".lfr-delegate-click")
 	private WebElement AssignToMeBtn;
@@ -34,9 +34,13 @@ public class AssignToMeRequestsPage extends PageObject{
 		element(VacationRequestsBtn).click();
 	}
 
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+        element(VacationRequestsActionBtn).shouldBeVisible();
+	}
+	
 	public void click_VacationRequestsActionBtn() {
-		element(RequestsActionBtn).waitUntilVisible();
-		element(RequestsActionBtn).click();
+		element(VacationRequestsActionBtn).waitUntilVisible();
+		element(VacationRequestsActionBtn).click();
 	}
 	
 	public void click_AssignToMeBtn() {

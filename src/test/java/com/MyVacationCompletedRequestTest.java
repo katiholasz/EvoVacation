@@ -40,6 +40,7 @@ public class MyVacationCompletedRequestTest {
 		logIn.enter_passd("1234");
 		logIn.clickMe();
 		endUser.click_vacations();
+		endUser1.assert_MyVacationCompletedRequests_link_should_be_visible();
 		endUser1.click_MyVacationCompletedRequest();
 	}
 }

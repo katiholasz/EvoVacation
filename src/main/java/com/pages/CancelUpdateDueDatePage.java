@@ -30,6 +30,10 @@ public class CancelUpdateDueDatePage extends PageObject {
 		element(VacationRequestsBtn).waitUntilVisible();
 		element(VacationRequestsBtn).click();
 	}
+	
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+        element(VacationRequestsActionBtn).shouldBeVisible();
+	 }
 
 	public void click_VacationRequestsActionBtn() {
 		element(VacationRequestsActionBtn).waitUntilVisible();

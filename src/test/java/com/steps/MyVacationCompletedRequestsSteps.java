@@ -20,6 +20,11 @@ public class MyVacationCompletedRequestsSteps extends ScenarioSteps {
 	MyVacationCompletedRequestsPage myvacationcompletedrequestspage;
 
 	@Step
+	public void assert_MyVacationCompletedRequests_link_should_be_visible() {
+		myvacationcompletedrequestspage.assert_MyVacationCompletedRequests_link_should_be_visible();
+	}
+
+	@Step
 	public void click_MyVacationCompletedRequest() {
 		myvacationcompletedrequestspage.click_MyVacationCompletedRequestsBtn();
 	}

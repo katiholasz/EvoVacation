@@ -41,6 +41,7 @@ public class AssignToMeRequestsTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		assignTo.click_VacationRequestsBtn();
+		assignTo.assert_VacationRequestsActionBtn_should_be_visible();
 		assignTo.click_VacationRequestsActionBtn();
 		assignTo.click_AssignToMeBtn();
 		assignTo.enter_Comment("test");

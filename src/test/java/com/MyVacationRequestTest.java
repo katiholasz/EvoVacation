@@ -41,6 +41,7 @@ public class MyVacationRequestTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		endUser2.click_MyVacationRequest();
+		endUser2.assert_MyVacationRequests_link_should_be_visible();
 		endUser2.click_MyRequestActionBtn();
 		endUser2.click_WithdrawSubmissionBtn();
 	}

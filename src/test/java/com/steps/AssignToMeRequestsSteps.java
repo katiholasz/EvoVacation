@@ -21,6 +21,11 @@ public class AssignToMeRequestsSteps extends ScenarioSteps{
 	public void click_VacationRequestsBtn() {
 		assigntomerequests.click_VacationRequestsBtn();
 	}
+	
+	@Step
+	 public void assert_VacationRequestsActionBtn_should_be_visible() {
+		assigntomerequests.assert_VacationRequestsActionBtn_should_be_visible();
+	 }
 
 	@Step
 	public void click_VacationRequestsActionBtn() {

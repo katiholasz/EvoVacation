@@ -48,6 +48,7 @@ public class CancelAssignVacationRequestTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		endUser1.click_VacationRequestsBtn();
+		endUser1.assert_VacationRequestsActionBtn_should_be_visible();
 		endUser1.click_VacationRequestsActionBtn();
 		endUser1.click_AssignToBtn();
 		cancelAssign.click_Cancel();

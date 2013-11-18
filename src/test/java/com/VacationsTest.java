@@ -41,6 +41,7 @@ public class VacationsTest {
 		logIn.enter_user("holaszkati@ymail.com");
 		logIn.enter_passd("kati");
 		logIn.clickMe();
+		vacationSteps.assert_vacation_is_visible();
 		logIn.click_vacations();		
 	}
 

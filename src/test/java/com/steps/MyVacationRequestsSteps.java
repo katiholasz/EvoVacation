@@ -21,6 +21,11 @@ public class MyVacationRequestsSteps extends ScenarioSteps {
 	public void click_MyVacationRequest() {
 		myvacationrequests.click_MyVacationRequestsBtn();
 	}
+	
+	@Step
+	public void assert_MyVacationRequests_link_should_be_visible() {
+		myvacationrequests.assert_MyVacationRequest_link_should_be_visible();
+	}
 
 	@Step
 	public void click_MyRequestActionBtn() {

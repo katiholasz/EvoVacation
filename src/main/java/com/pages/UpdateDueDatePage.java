@@ -30,9 +30,6 @@ public class UpdateDueDatePage extends PageObject {
 	@FindBy(css = "a[href*= updateWorkflowTask]")
 	private WebElement UpdateBtn;
 
-//	@FindBy(css = ".aui-datepicker-month")
-//	private WebElement Month;
-	
 	@FindBy(css = ".aui-datepicker-day")
 	private WebElement Day;
 	
@@ -58,6 +55,10 @@ public class UpdateDueDatePage extends PageObject {
 		element(VacationRequestsBtn).waitUntilVisible();
 		element(VacationRequestsBtn).click();
 	}
+	
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+        element(VacationRequestsActionBtn).shouldBeVisible();
+	 }
 
 	public void click_VacationRequestsActionBtn() {
 		element(VacationRequestsActionBtn).waitUntilVisible();

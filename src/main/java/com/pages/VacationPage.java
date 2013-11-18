@@ -19,6 +19,10 @@ public class VacationPage extends PageObject {
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_addVacationRequest")
 	public WebElement addVacation;
+	
+	public void assert_vacation_is_visible() {
+		element(vacation).shouldBeVisible();		
+	}
 
 	public void vacation() {
 		element(vacation).waitUntilVisible();

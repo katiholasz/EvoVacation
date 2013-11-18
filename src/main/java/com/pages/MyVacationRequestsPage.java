@@ -26,6 +26,10 @@ public class MyVacationRequestsPage extends PageObject {
 	public void click_MyVacationRequestsBtn() {
 		element(MyVacationRequestsBtn).click();
 	}
+	
+	public void assert_MyVacationRequest_link_should_be_visible() {
+		element(MyVacationRequestsBtn).shouldBeVisible();
+	}
 
 	public void click_MyRequestsActionBtn() {
 		element(MyRequestsActionBtn).waitUntilVisible();
