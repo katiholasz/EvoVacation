@@ -19,7 +19,7 @@ public final class Constants {
 	public static final String ADD_ROLES_URL = "http://localhost:9090/group/control_panel/manage?p_p_id=125&p_p_lifecycle=0&p_p_state=pop_up&p_p_mode=view&doAsGroupId=10561&refererPlid=10621&_125_struts_action=%2Fusers_admin%2Fselect_site";
 
 	//CREATE NEW USER
-	public static final String NU_SCREEN_NAME = tools.GenerateRandomUserName.generateRandomString() ;
+	public static final String NU_SCREEN_NAME = tools.GenerateRandom.generateRandomString() ;
 	public static final String NU_EMAIL = "holaszkati@gmail.com";
 	public static final String NU_F_NAME = "User";
 	public static final String NU_L_NAME = "Random";

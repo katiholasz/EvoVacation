@@ -61,10 +61,10 @@ public class CreateNewSimpleUserPage extends PageObject {
 	@FindBy(css= ".aui-button-content  .aui-button-input-submit ")
 	private WebElement iAgreeBtn;
 	
-	@FindBy(css= "div[class*='aui-fieldset-content'] span[class*='aui-field aui-field-text'] span[class*='aui-field-element'] input:nth-child(1) ")
+	@FindBy(css= ".aui-field.aui-field-text #reminderQueryAnswer")
 	private WebElement reminderQueryAnswer;
 	
-	@FindBy(css= ".aui-button-input aui-button-input-submit")
+	@FindBy(css= ".aui-button-input")
 	private WebElement saveReminderAnswer;
 
 
@@ -193,13 +193,6 @@ public class CreateNewSimpleUserPage extends PageObject {
 		getDriver().switchTo().window(defaultHandle);
 	}
 	
-	public void generate_random_email() {
-        Random random = new Random();
-        int f = random.nextInt(2000 - 1000 + 1) + 1000;
-        String emailAdd="user" + f + "@evozon.com";
-        element(emailAddress).click();
-		element(emailAddress).clear();
-		element(emailAddress).type(emailAdd);
-    }
+	
 
 }

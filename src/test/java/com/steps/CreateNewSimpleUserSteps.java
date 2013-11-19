@@ -100,11 +100,6 @@ public class CreateNewSimpleUserSteps extends ScenarioSteps {
 		
 	}
 	
-	@Step
-	public void generate_random_email() {
-		CreateNewSimpleUserPage.generate_random_email();
-		
-	}
-
+	
 
 }

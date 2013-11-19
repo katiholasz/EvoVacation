@@ -18,6 +18,7 @@ import com.steps.EvoVacationHistorySteps;
 import com.steps.LogInSteps;
 import com.steps.NewVacationRequestSteps;
 import com.steps.VacationSteps;
+
 import tools.Constants;
 
 @Story(Application.Login.LogIn.class)
@@ -55,7 +56,8 @@ public class CreateNewSimpleUserTest {
 		controlPanelSteps.click_UsersAndOrganisation();
 		createNewSimpleUserSteps.getDriver().get(Constants.ADD_USER_URL);
 		createNewSimpleUserSteps.enter_screenName(Constants.NU_SCREEN_NAME);
-		createNewSimpleUserSteps.generate_random_email();
+		String emailGenerated= tools.GenerateRandom.generate_random_email();
+		createNewSimpleUserSteps.enter_emailAdress(emailGenerated);
 		createNewSimpleUserSteps.enter_fName(Constants.NU_F_NAME);
 		createNewSimpleUserSteps.enter_lName(Constants.NU_L_NAME);
 		createNewSimpleUserSteps.enter_pID(Constants.NU_PERS_ID);
@@ -67,8 +69,9 @@ public class CreateNewSimpleUserTest {
 		createNewSimpleUserSteps.click_save_newUser();
 		createNewSimpleUserSteps.click_SitesLink();
 		createNewSimpleUserSteps.add_net_department();
+		createNewSimpleUserSteps.click_save_newUser();
 		logIn.click_log_out();	
-		logIn.enter_user(Constants.NU_EMAIL);
+		logIn.enter_user(emailGenerated);
 		logIn.enter_passd(Constants.NU_PASSWORD);
 		logIn.clickMe();
 		createNewSimpleUserSteps.click_IAgreeBtn();
@@ -85,7 +88,6 @@ public class CreateNewSimpleUserTest {
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.clickSaveBtn();
 		logIn.click_log_out();
-		logIn.assert_Home_page_should_be_visible();
 	}
 
 }
