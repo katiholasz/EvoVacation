@@ -91,7 +91,7 @@ public final class Constants {
 	public static final String EMAIL_CONTENT_USER = "Amelia Andrada Ilies";
 
 
-	// Check emails from EVO VACATION - SUBMITED NEW VACATION REQUEST
+	// Check emails from EVO VACATION - SUBMITTED NEW VACATION REQUEST
 
 	public static final String EMAIL_FROM_NEW_REQUEST = "EvoPortal team <evoportal@evozon.com>";
 	public static final String EMAIL_RECIEVED_DATE_NEW_REQUEST = "";
@@ -99,8 +99,12 @@ public final class Constants {
 	public static final String EMAIL_SUBJECT_NEW_REQUEST = "You have submitted a new Vacation Request";
 	public static final String EMAIL_CONTENT_NEW_REQUEST = "";
 
-
-
+	
+	// GMAIL account - to check approved/rejected and submitted vacation request  
+	public static final String IMAP_TYPE="zimbra.evozon.com";
+	public static final String ACOOUNT_ADDRESS="amelia.ilies@evozon.com";
+	public static final String ACOOUNT_PASSWORD="Qwerty12345!";
+	
 
 
 

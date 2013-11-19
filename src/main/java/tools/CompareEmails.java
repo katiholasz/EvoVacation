@@ -45,7 +45,7 @@ public class CompareEmails
 
 			store = session.getStore("imaps");
 
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
+			store.connect(tools.Constants.IMAP_TYPE,tools.Constants.ACOOUNT_ADDRESS,tools.Constants.ACOOUNT_PASSWORD);
 
 			folder = (IMAPFolder) store.getFolder("inbox");
 			
@@ -110,17 +110,14 @@ public class CompareEmails
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
-			
+	
 			Session session = Session.getDefaultInstance(props, null);
-			
 			store = session.getStore("imaps");
-			
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
 			
 			folder = (IMAPFolder) store.getFolder("inbox");
 			
 			DateFormat dateFormat = new SimpleDateFormat("EEE MMM d yyyy, 'Hour:' HH");
-			
+	
 			if (!folder.isOpen()) folder.open(Folder.READ_WRITE);
 			
 			Message[] msg = folder.getMessages();
@@ -185,7 +182,7 @@ public class CompareEmails
 			
 			store = session.getStore("imaps");
 			
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
+			store.connect(tools.Constants.IMAP_TYPE,tools.Constants.ACOOUNT_ADDRESS,tools.Constants.ACOOUNT_PASSWORD);
 			
 			folder = (IMAPFolder) store.getFolder("inbox");
 			

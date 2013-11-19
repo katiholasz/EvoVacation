@@ -79,9 +79,30 @@ public class CreateNewSimpleUserSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	public void click_IAgreeBtn() {
+		CreateNewSimpleUserPage.click_IAgreeBtn();
+	}
+	
+	@Step
+	public void enter_reminderQueryAnswer(String answer) {
+		CreateNewSimpleUserPage.enter_reminderQueryAnswer(answer);
+	}
+	
+	@Step
+	public void click_saveReminderAnswer() {
+		CreateNewSimpleUserPage.click_saveReminderAnswer();
+	}
+	
+	@Step
 	public void add_net_department() {
 		CreateNewSimpleUserPage.click_selectDepartemntButton();
 		CreateNewSimpleUserPage.select_net_dep_from_users_and_organizations();
+		
+	}
+	
+	@Step
+	public void generate_random_email() {
+		CreateNewSimpleUserPage.generate_random_email();
 		
 	}
 

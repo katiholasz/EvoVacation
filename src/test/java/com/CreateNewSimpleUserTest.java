@@ -55,7 +55,7 @@ public class CreateNewSimpleUserTest {
 		controlPanelSteps.click_UsersAndOrganisation();
 		createNewSimpleUserSteps.getDriver().get(Constants.ADD_USER_URL);
 		createNewSimpleUserSteps.enter_screenName(Constants.NU_SCREEN_NAME);
-		createNewSimpleUserSteps.enter_emailAdress(Constants.NU_EMAIL);
+		createNewSimpleUserSteps.generate_random_email();
 		createNewSimpleUserSteps.enter_fName(Constants.NU_F_NAME);
 		createNewSimpleUserSteps.enter_lName(Constants.NU_L_NAME);
 		createNewSimpleUserSteps.enter_pID(Constants.NU_PERS_ID);
@@ -67,10 +67,25 @@ public class CreateNewSimpleUserTest {
 		createNewSimpleUserSteps.click_save_newUser();
 		createNewSimpleUserSteps.click_SitesLink();
 		createNewSimpleUserSteps.add_net_department();
-		//createNewSimpleUserSteps.add_net_department();
-		
-		//createNewSimpleUserSteps.getDriver().get(Constants.ADD_ROLES_URL);
-		//createNewSimpleUserSteps.click_save_newUser();
+		logIn.click_log_out();	
+		logIn.enter_user(Constants.NU_EMAIL);
+		logIn.enter_passd(Constants.NU_PASSWORD);
+		logIn.clickMe();
+		createNewSimpleUserSteps.click_IAgreeBtn();
+		createNewSimpleUserSteps.enter_reminderQueryAnswer("answer");
+		createNewSimpleUserSteps.click_saveReminderAnswer();
+		logIn.click_vacations();
+		vacationSteps.assert_NewVacationRequest_button_should_be_visible();
+		vacationSteps.click_addNewVacation();
+		newVacationRequestSteps.start_month(Constants.START_MONTH_NVR);
+		newVacationRequestSteps.start_day(Constants.START_DAY_NVR);
+		newVacationRequestSteps.start_year(Constants.START_YEAR_NVR);
+		newVacationRequestSteps.end_month(Constants.END_MONTH_NVR);
+		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
+		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
+		newVacationRequestSteps.clickSaveBtn();
+		logIn.click_log_out();
+		logIn.assert_Home_page_should_be_visible();
 	}
 
 }

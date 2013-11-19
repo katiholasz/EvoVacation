@@ -1,5 +1,6 @@
 package com.pages;
 
+import java.util.Random;
 import java.util.Set;
 
 import net.thucydides.core.annotations.DefaultUrl;
@@ -56,6 +57,15 @@ public class CreateNewSimpleUserPage extends PageObject {
 	
 	@FindBy(id= "_125_sitesLink")
 	private WebElement sitesLink;
+	
+	@FindBy(css= ".aui-button-content  .aui-button-input-submit ")
+	private WebElement iAgreeBtn;
+	
+	@FindBy(css= "div[class*='aui-fieldset-content'] span[class*='aui-field aui-field-text'] span[class*='aui-field-element'] input:nth-child(1) ")
+	private WebElement reminderQueryAnswer;
+	
+	@FindBy(css= ".aui-button-input aui-button-input-submit")
+	private WebElement saveReminderAnswer;
 
 
 	// ------------------- METHODS -------------
@@ -149,6 +159,24 @@ public class CreateNewSimpleUserPage extends PageObject {
 		element(sitesLink).waitUntilVisible();
 		sitesLink.click();
 	}
+	
+	public void click_IAgreeBtn(){
+		element(iAgreeBtn).waitUntilVisible();
+		iAgreeBtn.click();
+	}
+	
+	public void click_saveReminderAnswer(){
+		element(saveReminderAnswer).waitUntilVisible();
+		saveReminderAnswer.click();
+	}
+	
+	public void enter_reminderQueryAnswer(String answer) 
+	{
+		element(reminderQueryAnswer).waitUntilVisible();
+		element(reminderQueryAnswer).click();
+		element(reminderQueryAnswer).clear();
+		element(reminderQueryAnswer).type(answer);
+	}
 
 	public void select_net_dep_from_users_and_organizations(){
 		//getDriver().switchTo().window("Users and Organizations");
@@ -164,5 +192,14 @@ public class CreateNewSimpleUserPage extends PageObject {
 
 		getDriver().switchTo().window(defaultHandle);
 	}
+	
+	public void generate_random_email() {
+        Random random = new Random();
+        int f = random.nextInt(2000 - 1000 + 1) + 1000;
+        String emailAdd="user" + f + "@evozon.com";
+        element(emailAddress).click();
+		element(emailAddress).clear();
+		element(emailAddress).type(emailAdd);
+    }
 
 }
