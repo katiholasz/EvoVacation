@@ -21,6 +21,11 @@ public class AssignVacationRequestSteps extends ScenarioSteps {
 	public void click_VacationRequestsBtn() {
 		assignvacationrequests.click_VacationRequestsBtn();
 	}
+	
+//	@Step
+//	public void enter_workflowTaskId(String id) {
+//		assignvacationrequests.enter_workflowTaskId("id");		
+//	}
 
 	@Step
 	 public void assert_VacationRequestsActionBtn_should_be_visible() {
@@ -54,9 +59,12 @@ public class AssignVacationRequestSteps extends ScenarioSteps {
 	
 	@Step
 	public void click_Ok() {
-		assignvacationrequests.click_OK();		
+		assignvacationrequests.click_OK();
 	}
 
-
+	@Step
+	public void markListEntry(String Username, String dateBetween) {
+		assignvacationrequests.markListEntry(Username, dateBetween);
+	}
 	
 }

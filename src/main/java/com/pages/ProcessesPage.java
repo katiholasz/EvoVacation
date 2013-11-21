@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-@DefaultUrl("http://localhost:9090/web/guest/login")
+@DefaultUrl("http://172.22.8.39:9090/web/guest/login")
 public class ProcessesPage extends PageObject {
 
 	    public ProcessesPage(WebDriver driver) 

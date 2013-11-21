@@ -18,7 +18,7 @@ import org.openqa.selenium.internal.seleniumemulation.SeleniumSelect;
 import org.openqa.selenium.support.FindBy;
 
 @SuppressWarnings("unused")
-@DefaultUrl("http://localhost:9090/web/guest/login")
+@DefaultUrl("http://172.22.8.39:9090/web/guest/login")
 public class EvoVacationHistoryPage extends PageObject {
 
 	// Constructor

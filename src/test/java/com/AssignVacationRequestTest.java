@@ -47,6 +47,8 @@ public class AssignVacationRequestTest {
 		endUser.click_vacations();
 		assignTo.click_VacationRequestsBtn();
 		vacationSteps.assert_vacation_link_should_be_visible();
+	//	assignTo.markListEntry("Amelia Andrada Ilies", "1/23/2014 - 1/23/2014");
+	//	assignTo.enter_workflowTaskId("80019");
 		assignTo.click_VacationRequestsActionBtn();
 		assignTo.click_AssignToBtn();
 		assignTo.click_a_person("Holasz Kati");

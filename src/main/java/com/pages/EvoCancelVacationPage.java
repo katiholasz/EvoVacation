@@ -12,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 @SuppressWarnings("unused")
-@DefaultUrl("http://localhost:9090/web/guest/login")
+@DefaultUrl("http://172.22.8.39:9090/web/guest/login")
 public class EvoCancelVacationPage extends PageObject {
 
 	// Constructor

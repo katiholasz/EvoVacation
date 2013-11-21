@@ -26,7 +26,7 @@ public class ProcessesTest
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://localhost:9090/")
+    @ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
     public Pages pages;
 
     @Steps
