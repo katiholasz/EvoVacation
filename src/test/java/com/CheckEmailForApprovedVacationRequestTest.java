@@ -42,17 +42,18 @@ public class CheckEmailForApprovedVacationRequestTest {
 	@Steps
 	public EvoCancelVacationSteps evoCancelVacationsteps;
 
-
 	@Test
 	public void Log_In() throws MessagingException, IOException {
-		//		logIn.enter_user(Constants.DM_USER);
-		//		logIn.enter_passd(Constants.DM_PASSWORD);
-		//		logIn.clickMe();
-		//		logIn.assert_SignOut_link_should_be_visible();
-		//		vacationSteps.assert_vacation_link_should_be_visible();
-		//		logIn.click_vacations();
-		//tools.CompareEmails.getEmailsForApprovedVacationRequest();
-		tools.GetEmail.vacation_approved_email();		
+		webdriver.manage().window().maximize();
+
+		// logIn.enter_user(Constants.DM_USER);
+		// logIn.enter_passd(Constants.DM_PASSWORD);
+		// logIn.clickMe();
+		// logIn.assert_SignOut_link_should_be_visible();
+		// vacationSteps.assert_vacation_link_should_be_visible();
+		// logIn.click_vacations();
+		// tools.CompareEmails.getEmailsForApprovedVacationRequest();
+		tools.GetEmail.vacation_approved_email();
 
 	}
 }

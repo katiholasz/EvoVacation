@@ -40,6 +40,7 @@ public class EvoCancelVacationSearchAllVacationTypesTest{
 
 	@Test
 	public void Log_In() {
+		webdriver.manage().window().maximize();
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();

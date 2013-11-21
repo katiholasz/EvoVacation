@@ -62,6 +62,7 @@ public class CheckConfirmationEmailWithParametersTest {
 		newVacationRequestSteps.end_month("January");
 		newVacationRequestSteps.end_day("23");
 		newVacationRequestSteps.end_year("2014");
+		
 		newVacationRequestSteps.clickSaveBtn();
 
 		newVacationRequestSteps

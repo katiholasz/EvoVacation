@@ -82,18 +82,19 @@ public class EvoVacationHistoryPage extends PageObject {
 	}
 
 	public void checkAdvancedSearch() {
-		if (!advancedSearchLink.isDisplayed()) {
-			checkBasicSearch();
+		if (element(advancedSearchLink).isDisplayed()) {
+			element(advancedSearchLink).waitUntilVisible();
+			element(advancedSearchLink).click();
 		} else {
-			if (advancedSearchLink.isDisplayed()) {
-				element(advancedSearchLink).waitUntilVisible();
-				element(advancedSearchLink).click();
+			if (!advancedSearchLink.isDisplayed()) {
+				checkBasicSearch();
 			}
 		}
 	}
+	
 
 	public void checkBasicSearch() {
-		if (!basicSearchLink.isDisplayed()) {
+		if (!element(basicSearchLink).isDisplayed()) {
 			refresh_page();
 		} else {
 			if (basicSearchLink.isDisplayed()) {
@@ -101,6 +102,10 @@ public class EvoVacationHistoryPage extends PageObject {
 				element(basicSearchLink).click();
 			}
 		}
+	}
+	
+	public void assert_advanced_search() {
+		element(advancedSearchLink).isPresent();
 	}
 
 	public void insert_firstName(String first_name) {

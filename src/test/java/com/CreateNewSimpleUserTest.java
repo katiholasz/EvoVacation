@@ -48,6 +48,8 @@ public class CreateNewSimpleUserTest {
 	// TESTs
 	@Test
 	public void LogIn() {
+		webdriver.manage().window().maximize();
+
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
@@ -57,6 +59,7 @@ public class CreateNewSimpleUserTest {
 		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_UsersAndOrganisation();
 		controlPanelSteps.assert_UsersAndOrg_should_be_visible();
+
 		createNewSimpleUserSteps.getDriver().get(Constants.ADD_USER_URL);
 		createNewSimpleUserSteps.enter_screenName(Constants.NU_SCREEN_NAME);
 		String emailGenerated = tools.GenerateRandom.generate_random_email();
@@ -66,13 +69,16 @@ public class CreateNewSimpleUserTest {
 		createNewSimpleUserSteps.enter_pID(Constants.NU_PERS_ID);
 		createNewSimpleUserSteps.enter_birthPlace(Constants.NU_BIRTH_PLACE);
 		createNewSimpleUserSteps.click_save_newUser();
+
 		createNewSimpleUserSteps.click_PasswordLink();
 		createNewSimpleUserSteps.enter_password1(Constants.NU_PASSWORD);
 		createNewSimpleUserSteps.enter_password2(Constants.NU_PASSWORD);
 		createNewSimpleUserSteps.click_save_newUser();
+
 		createNewSimpleUserSteps.click_SitesLink();
 		createNewSimpleUserSteps.add_net_department();
 		createNewSimpleUserSteps.click_save_newUser();
+
 		logIn.click_log_out();
 		logIn.assert_Home_page_should_be_visible();
 		logIn.enter_user(emailGenerated);
@@ -92,6 +98,7 @@ public class CreateNewSimpleUserTest {
 		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.clickSaveBtn();
+		
 		logIn.click_log_out();
 	}
 }
