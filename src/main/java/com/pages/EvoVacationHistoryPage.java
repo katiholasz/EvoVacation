@@ -86,7 +86,7 @@ public class EvoVacationHistoryPage extends PageObject {
 	{
 		if (!advancedSearchLink.isDisplayed())
 		{
-			refresh_page();
+			checkBasicSearch();
 		} 
 		else
 		{
@@ -97,12 +97,28 @@ public class EvoVacationHistoryPage extends PageObject {
 			}
 		}
 	}
+	
+	public void checkBasicSearch() 
+	{
+		if (!basicSearchLink.isDisplayed())
+		{
+			refresh_page();
+		} 
+		else
+		{
+			if (basicSearchLink.isDisplayed())
+			{
+				element(basicSearchLink).waitUntilVisible();
+				element(basicSearchLink).click(); 
+			}
+		}
+	}
 
 	public void insert_firstName(String first_name) 
 	{
 		if (!firstName_field.isDisplayed())
 		{
-			throw new IllegalStateException("First Name is not displayed!");
+			checkAdvancedSearch();
 		} else
 		{
 			element(firstName_field).waitUntilVisible();
@@ -116,7 +132,7 @@ public class EvoVacationHistoryPage extends PageObject {
 	{
 		if (!lastName_field.isDisplayed())
 		{
-			throw new IllegalStateException("Last Name is not displayed!");
+			checkAdvancedSearch();
 		} else
 		{
 			element(lastName_field).waitUntilVisible();
@@ -130,7 +146,7 @@ public class EvoVacationHistoryPage extends PageObject {
 	{
 		if (!dayCount_field.isDisplayed())
 		{
-			throw new IllegalStateException("Vacation type is not displayed!");
+			checkAdvancedSearch();
 		} else
 		{
 			element(dayCount_field).waitUntilVisible();
@@ -144,7 +160,7 @@ public class EvoVacationHistoryPage extends PageObject {
 	{
 		if (!vacationType_field.isDisplayed())
 		{
-			throw new IllegalStateException("Vacation type is not displayed!");
+			checkAdvancedSearch();
 		} else
 		{
 			element(vacationType_field).waitUntilVisible();

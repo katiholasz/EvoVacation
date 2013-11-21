@@ -43,9 +43,9 @@ public class CheckVacationRequest
 					//if(email_date==tools.Constants.EMAIL_RECIEVED_DATE || email_sender==tools.Constants.EMAIL_FROM || email_subject == tools.Constants.EMAIL_SUBJECT_APPROVED){
 					if( email_sender.contentEquals(tools.Constants.EMAIL_FROM) 
 							&& email_subject.contentEquals(tools.Constants.EMAIL_SUBJECT_APPROVED)
-							//	&& email_date.toString().toLowerCase().contains(tools.Constants.EMAIL_RECIEVED_DATE.toString().toLowerCase())
-							//&& email_sent_date.toString().toLowerCase().contains(email_received_date.toString().toLowerCase())
-							//&& email_content.toLowerCase().contains(tools.Constants.EMAIL_CONTENT_USER)
+							//&& email_sent_date.contentEquals(tools.Constants.EMAIL_SENT_DATE)
+							//&& email_sent_date.contains(email_received_date)
+							&& email_content.contains(tools.Constants.EMAIL_CONTENT_USER)
 							){
 						System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
 						System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));

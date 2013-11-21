@@ -49,6 +49,12 @@ public class ControlPanelSteps extends ScenarioSteps {
     {
     	contolPanelPage.assert_ControlPanel_should_be_visible();
     }
+    
+    @Step
+    public void assert_UsersAndOrg_should_be_visible() 
+    {
+    	contolPanelPage.assert_UsersAndOrg_should_be_visible();
+    }
 
     @Step
     public void click_EvoVacationHistory()

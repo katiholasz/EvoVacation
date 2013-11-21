@@ -1,5 +1,9 @@
 package com;
 
+import java.io.IOException;
+
+import javax.mail.MessagingException;
+
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -17,17 +21,17 @@ import com.requirements.Application;
 import com.steps.ControlPanelSteps;
 import com.steps.EvoVacationHistorySteps;
 import com.steps.LogInSteps;
+import com.steps.NewVacationRequestSteps;
 import com.steps.VacationSteps;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
-public class EvoVacationHistoryTest {
+public class CheckConfirmationEmailWithParametersTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://localhost:9090/")
-
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
 	public Pages pages;
 
 	@Steps
@@ -38,29 +42,33 @@ public class EvoVacationHistoryTest {
 	public ControlPanelSteps controlPanelSteps;
 	@Steps
 	public EvoVacationHistorySteps evoVacationHistorySteps;
+	@Steps
+	public NewVacationRequestSteps newVacationRequestSteps;
 
 	@Test
-	public void Log_In() {
+	public void LogIn() throws MessagingException, IOException {
 		webdriver.manage().window().maximize();
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
 		logIn.assert_SignOut_link_should_be_visible();
-		controlPanelSteps.click_GoTo();
-		controlPanelSteps.click_ControlPanel();
-		controlPanelSteps.assert_ControlPanel_should_be_visible();
-		controlPanelSteps.assert_EvoVacationHistory_should_be_visible();
-		controlPanelSteps.click_EvoVacationHistory();
-		evoVacationHistorySteps.check_AdvancedSearch();
-		//evoVacationHistorySteps.select_tip_concediu("Concediu de odihna");
-		evoVacationHistorySteps.insert_firstName(Constants.FIRST_NAME_EVH );
-		evoVacationHistorySteps.insert_LastName(Constants.LAST_NAME_EVH);
-		evoVacationHistorySteps.insert_dayCount(Constants.DAY_COUNT_EVH);
-		evoVacationHistorySteps.insert_vacationType(Constants.VACATION_TYPE_EVH);
-		evoVacationHistorySteps.checkBasicSearch();
-		evoVacationHistorySteps.check_basic_search(Constants.LAST_NAME_EVH);
-		evoVacationHistorySteps.verifySearchResults(Constants.LAST_NAME_EVH);
-		logIn.click_log_out();
-		logIn.waitABit(2000);
+		logIn.click_vacations();
+
+		newVacationRequestSteps.clickNewVacation();
+		newVacationRequestSteps.start_month("January");
+		newVacationRequestSteps.start_day("22");
+		newVacationRequestSteps.start_year("2014");
+
+		newVacationRequestSteps.end_month("January");
+		newVacationRequestSteps.end_day("23");
+		newVacationRequestSteps.end_year("2014");
+		newVacationRequestSteps.clickSaveBtn();
+
+		newVacationRequestSteps
+				.checkNotificationMessage("Your request completed successfully.");
+		tools.MAIL.checkEmailWithParameters(tools.Constants.IMAP_TYPE,
+				tools.Constants.ACOOUNT_ADDRESS, tools.Constants.ACOOUNT_PASSWORD,
+				tools.Constants.EMAIL_FROM,
+				tools.Constants.EMAIL_SUBJECT_NEW_REQUEST);
 	}
 }

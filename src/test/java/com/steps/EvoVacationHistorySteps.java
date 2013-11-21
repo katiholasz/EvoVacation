@@ -33,6 +33,12 @@ public class EvoVacationHistorySteps extends ScenarioSteps {
 	{
 		evoVacationHistoryPage.checkAdvancedSearch();
 	}
+	
+	@Step
+	public void checkBasicSearch() 
+	{
+		evoVacationHistoryPage.checkBasicSearch();
+	}
 
 	@Step
 	public void refreshPage() 

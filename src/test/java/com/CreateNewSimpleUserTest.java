@@ -51,9 +51,12 @@ public class CreateNewSimpleUserTest {
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_UsersAndOrganisation();
+		controlPanelSteps.assert_UsersAndOrg_should_be_visible();
 		createNewSimpleUserSteps.getDriver().get(Constants.ADD_USER_URL);
 		createNewSimpleUserSteps.enter_screenName(Constants.NU_SCREEN_NAME);
 		String emailGenerated= tools.GenerateRandom.generate_random_email();
@@ -71,9 +74,11 @@ public class CreateNewSimpleUserTest {
 		createNewSimpleUserSteps.add_net_department();
 		createNewSimpleUserSteps.click_save_newUser();
 		logIn.click_log_out();	
+		logIn.assert_Home_page_should_be_visible();
 		logIn.enter_user(emailGenerated);
 		logIn.enter_passd(Constants.NU_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		createNewSimpleUserSteps.click_IAgreeBtn();
 		createNewSimpleUserSteps.enter_reminderQueryAnswer("answer");
 		createNewSimpleUserSteps.click_saveReminderAnswer();

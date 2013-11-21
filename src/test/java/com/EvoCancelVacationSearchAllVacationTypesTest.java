@@ -43,11 +43,76 @@ public class EvoCancelVacationSearchAllVacationTypesTest{
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		controlPanelSteps.click_GoTo();
 		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_EvoCancelVacation();
-		evoCancelVacationsteps.click_SearchBetweenDates();	
 		evoCancelVacationsteps.select_tip_concediu("All");
+		evoCancelVacationsteps.waitABit(5000);
+		logIn.click_log_out();
 
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
+		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
+		controlPanelSteps.click_EvoCancelVacation();
+		evoCancelVacationsteps.select_tip_concediu("Concediu de odihna");
+		evoCancelVacationsteps.waitABit(5000);
+		evoCancelVacationsteps.refresh_page();
+		logIn.click_log_out();
+
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
+		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
+		controlPanelSteps.click_EvoCancelVacation();
+		evoCancelVacationsteps.select_tip_concediu("Concediu fara plata");
+		evoCancelVacationsteps.waitABit(5000);
+		logIn.click_log_out();
+
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
+		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
+		controlPanelSteps.click_EvoCancelVacation();		
+		evoCancelVacationsteps.select_tip_concediu("Concediu medical");
+		evoCancelVacationsteps.waitABit(5000);
+		logIn.click_log_out();
+
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
+		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
+		controlPanelSteps.click_EvoCancelVacation();		
+		evoCancelVacationsteps.select_tip_concediu("Concediu fara plata");
+		evoCancelVacationsteps.select_tip_concediu("Concediu de odihna");
+		evoCancelVacationsteps.waitABit(5000);
+		logIn.click_log_out();
+
+		logIn.enter_user(Constants.DM_USER);
+		logIn.enter_passd(Constants.DM_PASSWORD);
+		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
+		controlPanelSteps.click_GoTo();
+		controlPanelSteps.click_ControlPanel();
+		controlPanelSteps.assert_ControlPanel_should_be_visible();
+		controlPanelSteps.click_EvoCancelVacation();
+		evoCancelVacationsteps.select_tip_concediu("Concediu fara plata");
+		evoCancelVacationsteps.select_tip_concediu("Concediu de odihna");
+		evoCancelVacationsteps.select_tip_concediu("Concediu medical");
+		evoCancelVacationsteps.waitABit(5000);
 	}
 }

@@ -81,8 +81,8 @@ public final class Constants {
 	// Check emails from EVO VACATION - APPROVED / REJECTED
 
 	public static final String EMAIL_FROM = "EvoPortal Team <evoportal@evozon.com>";
-	public static final String EMAIL_SENT_DATE = "Nov 18 2013";
-	public static final String EMAIL_RECIEVED_DATE = "Nov 13 2013";
+	public static final String EMAIL_SENT_DATE = "Thu Nov 7 2013, Hour: 13";
+	public static final String EMAIL_RECIEVED_DATE = "Thu Nov 7 2013, Hour: 13";
 	public static final String EMAIL_SENT_DATE_MONTH = "NoV";
 	public static final String EMAIL_SENT_DATE_DAY = "13";
 	public static final String EMAIL_SENT_DATE_YEAR = "2013";

@@ -19,8 +19,10 @@ public class GetEmail {
 			Store store = session.getStore("imaps");
 
 			// IMAP host for gmail
-			//store.connect("imap.mail.gmail.com", "", "");
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
+			// store.connect("imap.mail.gmail.com", "", "");
+			store.connect(tools.Constants.IMAP_TYPE,
+					tools.Constants.ACOOUNT_ADDRESS,
+					tools.Constants.ACOOUNT_PASSWORD);
 			// IMAP host for yahoo.
 			// store.connect("imap.mail.yahoo.com", "<username>", "<password>");
 			System.out.println(store);
@@ -28,31 +30,36 @@ public class GetEmail {
 			Folder inbox = store.getFolder("Inbox");
 			inbox.open(Folder.READ_ONLY);
 
-			BufferedReader optionReader = new BufferedReader(new InputStreamReader(System.in));
-			/*System.out.println("Press 'U' to get only UNREAD mails!");
-			System.out.println("Press 'A' to get all mails");
-			try {
-				char answer = (char) optionReader.read();
-				if (answer == 'A' || answer == 'a') {
+			BufferedReader optionReader = new BufferedReader(
+					new InputStreamReader(System.in));
+			/*
+			 * System.out.println("Press 'U' to get only UNREAD mails!");
+			 * System.out.println("Press 'A' to get all mails"); try { char
+			 * answer = (char) optionReader.read(); if (answer == 'A' || answer
+			 * == 'a') {
 			 */
 			tools.ShowAllEmails.showAllMails(inbox);
-			
-			/*tools.Constants.EMAIL_RECIEVED_DATE.compareTo(tools.ShowAllEmails.email_date) ;
-			tools.Constants.EMAIL_FROM.compareTo(tools.ShowAllEmails.email_sender) ;
-			tools.Constants.EMAIL_CONTENT.compareTo(tools.ShowAllEmails.email_content) ;
-			tools.Constants.EMAIL_SUBJECT_APPROVED.compareTo(tools.ShowAllEmails.email_subject) ;*/
-			
-			/*} else if (answer == 'U' || answer == 'u') {
-					tools.ShowUnreadEmails.showUnreadMails(inbox);
-				}
-				optionReader.close();
-			} catch (IOException e) {
-				System.out.println(e);
-			}
 
-		} catch (NoSuchProviderException e) {
-			System.out.println(e.toString());
-			System.exit(1);*/
+			/*
+			 * tools.Constants.EMAIL_RECIEVED_DATE.compareTo(tools.ShowAllEmails.
+			 * email_date) ;
+			 * tools.Constants.EMAIL_FROM.compareTo(tools.ShowAllEmails
+			 * .email_sender) ;
+			 * tools.Constants.EMAIL_CONTENT.compareTo(tools.ShowAllEmails
+			 * .email_content) ;
+			 * tools.Constants.EMAIL_SUBJECT_APPROVED.compareTo
+			 * (tools.ShowAllEmails.email_subject) ;
+			 */
+
+			/*
+			 * } else if (answer == 'U' || answer == 'u') {
+			 * tools.ShowUnreadEmails.showUnreadMails(inbox); }
+			 * optionReader.close(); } catch (IOException e) {
+			 * System.out.println(e); }
+			 * 
+			 * } catch (NoSuchProviderException e) {
+			 * System.out.println(e.toString()); System.exit(1);
+			 */
 		} catch (MessagingException e) {
 			System.out.println(e.toString());
 			System.exit(2);
@@ -65,8 +72,10 @@ public class GetEmail {
 		try {
 			Session session = Session.getDefaultInstance(props, null);
 			Store store = session.getStore("imaps");
-			//store.connect("imap.mail.gmail.com", "", "");
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
+			// store.connect("imap.mail.gmail.com", "", "");
+			store.connect(tools.Constants.IMAP_TYPE,
+					tools.Constants.ACOOUNT_ADDRESS,
+					tools.Constants.ACOOUNT_PASSWORD);
 			// store.connect("imap.mail.yahoo.com", "<username>", "<password>");
 			System.out.println(store);
 
@@ -74,9 +83,11 @@ public class GetEmail {
 			inbox.open(Folder.READ_ONLY);
 
 			@SuppressWarnings("unused")
-			BufferedReader optionReader = new BufferedReader(new InputStreamReader(System.in));
-			tools.CheckVacationRequest.checked_email_if_user_submited_new_vacation_request(inbox);
-		
+			BufferedReader optionReader = new BufferedReader(
+					new InputStreamReader(System.in));
+			tools.CheckVacationRequest
+					.checked_email_if_user_submited_new_vacation_request(inbox);
+
 		} catch (MessagingException e) {
 			System.out.println(e.toString());
 			System.exit(2);
@@ -89,42 +100,50 @@ public class GetEmail {
 		try {
 			Session session = Session.getDefaultInstance(props, null);
 			Store store = session.getStore("imaps");
-			//store.connect("imap.mail.gmail.com", "", "");
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
+			// store.connect("imap.mail.gmail.com", "", "");
+			store.connect(tools.Constants.IMAP_TYPE,
+					tools.Constants.ACOOUNT_ADDRESS,
+					tools.Constants.ACOOUNT_PASSWORD);
 			// store.connect("imap.mail.yahoo.com", "<username>", "<password>");
 			System.out.println(store);
 
 			Folder inbox = store.getFolder("Inbox");
 			inbox.open(Folder.READ_ONLY);
 
-			BufferedReader optionReader = new BufferedReader(new InputStreamReader(System.in));
-		
-			tools.CheckVacationRequest.checked_email_if_vacation_approved(inbox);
-		
+			BufferedReader optionReader = new BufferedReader(
+					new InputStreamReader(System.in));
+
+			tools.CheckVacationRequest
+					.checked_email_if_vacation_approved(inbox);
+
 		} catch (MessagingException e) {
 			System.out.println(e.toString());
 			System.exit(2);
 		}
 	}
-	
-	public static void vacation_rejected_email(){
+
+	public static void vacation_rejected_email() {
 		Properties props = System.getProperties();
 		props.setProperty("mail.store.protocol", "imaps");
 		try {
 			Session session = Session.getDefaultInstance(props, null);
 			Store store = session.getStore("imaps");
-			//store.connect("imap.mail.gmail.com", "", "");
-			store.connect("zimbra.evozon.com", "amelia.ilies@evozon.com","Qwerty12345!");
+			// store.connect("imap.mail.gmail.com", "", "");
+			store.connect(tools.Constants.IMAP_TYPE,
+					tools.Constants.ACOOUNT_ADDRESS,
+					tools.Constants.ACOOUNT_PASSWORD);
 			// store.connect("imap.mail.yahoo.com", "<username>", "<password>");
 			System.out.println(store);
-			
+
 			Folder inbox = store.getFolder("Inbox");
 			inbox.open(Folder.READ_ONLY);
-			
-			BufferedReader optionReader = new BufferedReader(new InputStreamReader(System.in));
-			
-			tools.CheckVacationRequest.checked_email_if_vacation_rejected(inbox);
-			
+
+			BufferedReader optionReader = new BufferedReader(
+					new InputStreamReader(System.in));
+
+			tools.CheckVacationRequest
+					.checked_email_if_vacation_rejected(inbox);
+
 		} catch (MessagingException e) {
 			System.out.println(e.toString());
 			System.exit(2);

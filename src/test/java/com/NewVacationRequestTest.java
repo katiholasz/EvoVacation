@@ -42,10 +42,12 @@ public class NewVacationRequestTest {
 
 	@Test
 	public void LogIn() {
+		webdriver.manage().window().maximize();
 		// test 1 - SAVE
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		logIn.click_vacations();
 		newVacationRequestSteps.clickNewVacation();
 		newVacationRequestSteps.start_month(Constants.START_MONTH_NVR);
@@ -55,12 +57,14 @@ public class NewVacationRequestTest {
 		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.clickSaveBtn();
-		logIn.click_log_out();
-		logIn.assert_Home_page_should_be_visible();
+		newVacationRequestSteps.checkNotificationMessage("Your request completed successfully.");
+		logIn.waitABit(8000);
+		logIn.click_log_out();		
 		// test 2 - CANCEL
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
 		logIn.clickMe();
+		logIn.assert_SignOut_link_should_be_visible();
 		logIn.click_vacations();
 		newVacationRequestSteps.clickNewVacation();
 		newVacationRequestSteps.start_month(Constants.START_MONTH_NVR);
@@ -70,10 +74,8 @@ public class NewVacationRequestTest {
 		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.click_button_cancel();
+		logIn.waitABit(8000);
 		logIn.click_log_out();
-		logIn.assert_Home_page_should_be_visible();
-
-
 	}
 
 }

@@ -90,6 +90,11 @@ public class EvoCancelVacationSteps extends ScenarioSteps {
 	public void end_year_ECvS(String eYear_ECvS){
 		evoCancelVacationPage.pick_end_year_ECvS(eYear_ECvS);
 	}
+	
+	@Step
+	public void refresh_page(){
+		evoCancelVacationPage.refresh_page();
+	}
 
 
 }

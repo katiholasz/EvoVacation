@@ -64,6 +64,11 @@ public class ControlPanelPage extends PageObject {
 		waitForTitleToAppear("Control Panel - Evoportal");
 		element(controlPanel_rightMenu).shouldBeVisible();
 	}
+	
+	public void assert_UsersAndOrg_should_be_visible() {
+		waitForTitleToAppear("Users and Organization - Evoportal");
+		element(controlPanel_rightMenu).shouldBeVisible();
+	}
 
 	public void click_MyFreeDays() {
 		element(goTo_MyFreeDays).waitUntilVisible();

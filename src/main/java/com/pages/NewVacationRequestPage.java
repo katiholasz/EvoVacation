@@ -48,6 +48,10 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_cancelButton")
 	public WebElement cancel_request;
+	
+	
+	@FindBy(css = ".portlet-msg-success")
+	public WebElement comfirmation_message;
 
 	// -- METHODS ---
 	public void click_vacation() {

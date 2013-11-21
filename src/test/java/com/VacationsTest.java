@@ -38,8 +38,8 @@ public class VacationsTest {
 
 	@Test
 	public void Log_In() {
-		logIn.enter_user("holaszkati@ymail.com");
-		logIn.enter_passd("kati");
+		logIn.enter_user(tools.Constants.DM_USER);
+		logIn.enter_passd(tools.Constants.DM_PASSWORD);
 		logIn.clickMe();
 		logIn.assert_SignOut_link_should_be_visible();
 		logIn.click_vacations();		

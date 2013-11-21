@@ -51,5 +51,6 @@ public class EvoCancelVacationTest {
 		evoCancelVacationsteps.assert_checkBox_CheckBetweenDates_should_be_Visible();
 		evoCancelVacationsteps.click_SearchBetweenDates();
 		evoCancelVacationsteps.cancelExistingRequest();
+		evoCancelVacationsteps.waitABit(5000);
 	}
 }

@@ -17,6 +17,7 @@ import tools.Constants;
 
 import com.requirements.Application;
 import com.steps.ControlPanelSteps;
+import com.steps.EvoCancelVacationSteps;
 import com.steps.LogInSteps;
 import com.steps.MyFreeDaysSteps;
 import com.steps.VacationSteps;
@@ -78,6 +79,8 @@ public class MyFreeDays_CSV_Test {
 	public ControlPanelSteps controlPanelSteps;
 	@Steps
 	public MyFreeDaysSteps myFreeDaysSteps;
+	@Steps
+	public EvoCancelVacationSteps evoCancelVacationSteps;
 
 	@Test
 	public void MyFreeDays() {
@@ -95,6 +98,8 @@ public class MyFreeDays_CSV_Test {
 		myFreeDaysSteps.enter_freeCurrentYear(get_freeCurrentYear());
 		myFreeDaysSteps.enter_monthsExpBeforeHiring(get_monthExpBeforeHiring());
 		myFreeDaysSteps.enter_monthsExpPreviousEvozon(get_monthExpEvozon());
+		myFreeDaysSteps.waitABit(5000);
+		myFreeDaysSteps.refresh();
 	}
 
 }
