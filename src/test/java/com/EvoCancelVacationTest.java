@@ -25,7 +25,7 @@ public class EvoCancelVacationTest {
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://localhost:9090/")
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
 	public Pages pages;
 
 	@Steps
@@ -48,7 +48,8 @@ public class EvoCancelVacationTest {
 		controlPanelSteps.click_ControlPanel();
 		controlPanelSteps.assert_ControlPanel_should_be_visible();
 		controlPanelSteps.click_EvoCancelVacation();
-		evoCancelVacationsteps.assert_checkBox_CheckBetweenDates_should_be_Visible();
+		evoCancelVacationsteps
+				.assert_checkBox_CheckBetweenDates_should_be_Visible();
 		evoCancelVacationsteps.click_SearchBetweenDates();
 		evoCancelVacationsteps.cancelExistingRequest();
 		evoCancelVacationsteps.waitABit(5000);

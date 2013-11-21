@@ -18,20 +18,23 @@ public class VacationSteps extends ScenarioSteps {
 	VacationPage vacationPage;
 
 	@Step
+	public void assert_vacation_is_visible() {
+		vacationPage.assert_vacation_is_visible();
+	}
+
+	@Step
 	public void click_addNewVacation() {
 		vacationPage.AddNewVacation();
 	}
-	
+
 	@Step
 	public void assert_vacation_link_should_be_visible() {
 		vacationPage.assert_vacation_link_should_be_visible();
 	}
-	
-	
+
 	@Step
 	public void assert_NewVacationRequest_button_should_be_visible() {
 		vacationPage.assert_NewVacationRequest_button_should_be_visible();
 	}
-	
-	
+
 }

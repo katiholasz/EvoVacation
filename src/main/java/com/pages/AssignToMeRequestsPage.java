@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 @DefaultUrl("http://172.22.8.39:9090/web/.net-department/vacation")
-public class AssignToMeRequestsPage extends PageObject{
+public class AssignToMeRequestsPage extends PageObject {
 
 	public AssignToMeRequestsPage(WebDriver driver) {
 		super(driver);
@@ -18,14 +18,14 @@ public class AssignToMeRequestsPage extends PageObject{
 	private WebElement VacationRequestsBtn;
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_2_1_menuButton")
-	private WebElement RequestsActionBtn;
+	private WebElement VacationRequestsActionBtn;
 
 	@FindBy(css = ".lfr-delegate-click")
 	private WebElement AssignToMeBtn;
-	
+
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_comment")
 	private WebElement Comment;
-	
+
 	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
 	private WebElement ConfirmAssignToMe;
 
@@ -34,25 +34,28 @@ public class AssignToMeRequestsPage extends PageObject{
 		element(VacationRequestsBtn).click();
 	}
 
-	public void click_VacationRequestsActionBtn() {
-		element(RequestsActionBtn).waitUntilVisible();
-		element(RequestsActionBtn).click();
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+		element(VacationRequestsActionBtn).shouldBeVisible();
 	}
-	
+
+	public void click_VacationRequestsActionBtn() {
+		element(VacationRequestsActionBtn).waitUntilVisible();
+		element(VacationRequestsActionBtn).click();
+	}
+
 	public void click_AssignToMeBtn() {
 		element(AssignToMeBtn).waitUntilVisible();
 		element(AssignToMeBtn).click();
 	}
-	
+
 	public void Comment(String keyword) {
-		  element(Comment).waitUntilVisible();
-		  element(Comment).type(keyword);		
+		element(Comment).waitUntilVisible();
+		element(Comment).type(keyword);
 	}
-	
+
 	public void click_ConfirmAssignToMe() {
 		element(ConfirmAssignToMe).waitUntilVisible();
 		element(ConfirmAssignToMe).click();
 	}
 
-	
 }

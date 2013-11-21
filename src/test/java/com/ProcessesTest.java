@@ -20,16 +20,15 @@ import com.steps.VacationSteps;
 
 @Story(Application.Login.LogIn.class)
 @RunWith(ThucydidesRunner.class)
-public class ProcessesTest 
-{
+public class ProcessesTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://localhost:9090/")
-    public Pages pages;
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
+	public Pages pages;
 
-    @Steps
+	@Steps
 	public LogInSteps logIn;
 	@Steps
 	public VacationSteps vacationSteps;
@@ -39,7 +38,7 @@ public class ProcessesTest
 	public EvoVacationHistorySteps evoVacationHistorySteps;
 	@Steps
 	public ProcessesSteps processesSteps;
-	
+
 	@Test
 	public void Log_In() {
 		logIn.enter_user(tools.Constants.DM_USER);
@@ -48,11 +47,14 @@ public class ProcessesTest
 		logIn.assert_SignOut_link_should_be_visible();
 		logIn.click_vacations();
 		processesSteps.click_Processes();
-		processesSteps.click_VacationRequests();	
-		processesSteps.getDriver().get("http://localhost:9090/web/.net-department/vacation?p_p_id=1_WAR_EvozonKaleooFormsportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_1_WAR_EvozonKaleooFormsportlet_mvcPath=%2Fview_kaleo_process.jsp&_1_WAR_EvozonKaleooFormsportlet_backURL=%2Fweb%2F.net-department%2Fvacation%3Fp_p_id%3D1_WAR_EvozonKaleooFormsportlet%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-1%26p_p_col_count%3D1%26tabs1%3Dprocesses&_1_WAR_EvozonKaleooFormsportlet_kaleoProcessId=18864");
+		processesSteps.click_VacationRequests();
+		processesSteps
+				.getDriver()
+				.get("http://localhost:9090/web/.net-department/vacation?p_p_id=1_WAR_EvozonKaleooFormsportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_1_WAR_EvozonKaleooFormsportlet_mvcPath=%2Fview_kaleo_process.jsp&_1_WAR_EvozonKaleooFormsportlet_backURL=%2Fweb%2F.net-department%2Fvacation%3Fp_p_id%3D1_WAR_EvozonKaleooFormsportlet%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-1%26p_p_col_count%3D1%26tabs1%3Dprocesses&_1_WAR_EvozonKaleooFormsportlet_kaleoProcessId=18864");
 		processesSteps.retrieveMyVacationCompletedRequests();
 		logIn.click_log_out();
 		logIn.assert_Home_page_should_be_visible();
+
 	}
-    
+
 }

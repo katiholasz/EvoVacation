@@ -26,7 +26,7 @@ public class NewVacationRequestTest {
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://localhost:9090/")
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
 	public Pages pages;
 
 	@Steps
@@ -57,9 +57,10 @@ public class NewVacationRequestTest {
 		newVacationRequestSteps.end_day(Constants.END_DAY_NVR);
 		newVacationRequestSteps.end_year(Constants.END_YEAR_NVR);
 		newVacationRequestSteps.clickSaveBtn();
-		newVacationRequestSteps.checkNotificationMessage("Your request completed successfully.");
+		newVacationRequestSteps
+				.checkNotificationMessage("Your request completed successfully.");
 		logIn.waitABit(8000);
-		logIn.click_log_out();		
+		logIn.click_log_out();
 		// test 2 - CANCEL
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
@@ -77,5 +78,4 @@ public class NewVacationRequestTest {
 		logIn.waitABit(8000);
 		logIn.click_log_out();
 	}
-
 }

@@ -28,7 +28,7 @@ public class EvoVacationHistoryPage extends PageObject {
 		super(driver);
 	}
 
-	//--------- ELEMENTS ------------
+	// --------- ELEMENTS ------------
 	@FindBy(id = "_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet_firstName")
 	public WebElement firstName_field;
 
@@ -41,16 +41,16 @@ public class EvoVacationHistoryPage extends PageObject {
 	@FindBy(id = "_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet_type")
 	public WebElement vacationType_field;
 
-	//SEARCH BUTTON
-	@FindBy(css ="")
+	// SEARCH BUTTON
+	@FindBy(css = "")
 	public WebElement searchButton;
 
-	//Advanced Link / BUTTON
-	@FindBy(partialLinkText ="Advanced")
+	// Advanced Link / BUTTON
+	@FindBy(partialLinkText = "Advanced")
 	public WebElement advancedSearchLink;
 
-	//Advanced Link / BUTTON
-	@FindBy(partialLinkText ="Basic")
+	// Advanced Link / BUTTON
+	@FindBy(partialLinkText = "Basic")
 	public WebElement basicSearchLink;
 
 	@FindBy(id = "_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet_toggle_id_directory_history_searchkeywords")
@@ -60,168 +60,149 @@ public class EvoVacationHistoryPage extends PageObject {
 	@FindBy(id = "_160_portlet_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet")
 	public WebElement goTo_EvoVacationHistory;
 
-	@FindBy(css =".tip-concediu-label")
+	@FindBy(css = ".tip-concediu-label")
 	private WebElement ddlTipConcediu;
 
-	@FindBy(css ="ul.concediu-ul")
+	@FindBy(css = "ul.concediu-ul")
 	private WebElement concediuListContainer;
-	// ---------------------------------- METHODS --------------------------------------------------
-	public void refresh_page()
-	{
+
+	// ---------------------------------- METHODS
+	// --------------------------------------------------
+	public void refresh_page() {
 		getDriver().navigate().refresh();
 	}
 
-	public void goto_EvoVH()
-	{
+	public void goto_EvoVH() {
 		element(goTo_EvoVacationHistory).waitUntilVisible();
-		element(goTo_EvoVacationHistory).click(); 
+		element(goTo_EvoVacationHistory).click();
 	}
 
-	public void send_enter() 
-	{
+	public void send_enter() {
 
 	}
 
-	public void checkAdvancedSearch() 
-	{
-		if (!advancedSearchLink.isDisplayed())
-		{
+	public void checkAdvancedSearch() {
+		if (!advancedSearchLink.isDisplayed()) {
 			checkBasicSearch();
-		} 
-		else
-		{
-			if (advancedSearchLink.isDisplayed())
-			{
+		} else {
+			if (advancedSearchLink.isDisplayed()) {
 				element(advancedSearchLink).waitUntilVisible();
-				element(advancedSearchLink).click(); 
+				element(advancedSearchLink).click();
 			}
 		}
 	}
-	
-	public void checkBasicSearch() 
-	{
-		if (!basicSearchLink.isDisplayed())
-		{
+
+	public void checkBasicSearch() {
+		if (!basicSearchLink.isDisplayed()) {
 			refresh_page();
-		} 
-		else
-		{
-			if (basicSearchLink.isDisplayed())
-			{
+		} else {
+			if (basicSearchLink.isDisplayed()) {
 				element(basicSearchLink).waitUntilVisible();
-				element(basicSearchLink).click(); 
+				element(basicSearchLink).click();
 			}
 		}
 	}
 
-	public void insert_firstName(String first_name) 
-	{
-		if (!firstName_field.isDisplayed())
-		{
+	public void insert_firstName(String first_name) {
+		if (!firstName_field.isDisplayed()) {
 			checkAdvancedSearch();
-		} else
-		{
+		} else {
 			element(firstName_field).waitUntilVisible();
-			element(firstName_field).click(); 
-			element(firstName_field).typeAndEnter(first_name);		
+			element(firstName_field).click();
+			element(firstName_field).typeAndEnter(first_name);
 
-		}        
+		}
 	}
 
-	public void insert_lastName(String last_name) 
-	{
-		if (!lastName_field.isDisplayed())
-		{
+	public void insert_lastName(String last_name) {
+		if (!lastName_field.isDisplayed()) {
 			checkAdvancedSearch();
-		} else
-		{
+		} else {
 			element(lastName_field).waitUntilVisible();
-			element(lastName_field).click(); 
+			element(lastName_field).click();
 			element(lastName_field).typeAndEnter(last_name);
 
-		}        
+		}
 	}
 
-	public void insert_dayCount(String day_count) 
-	{
-		if (!dayCount_field.isDisplayed())
-		{
+	public void insert_dayCount(String day_count) {
+		if (!dayCount_field.isDisplayed()) {
 			checkAdvancedSearch();
-		} else
-		{
+		} else {
 			element(dayCount_field).waitUntilVisible();
-			element(dayCount_field).click(); 
+			element(dayCount_field).click();
 			element(dayCount_field).typeAndEnter(day_count);
 
-		}        
+		}
 	}
 
-	public void insert_vacationType(String vacation_type) 
-	{
-		if (!vacationType_field.isDisplayed())
-		{
+	public void insert_vacationType(String vacation_type) {
+		if (!vacationType_field.isDisplayed()) {
 			checkAdvancedSearch();
-		} else
-		{
+		} else {
 			element(vacationType_field).waitUntilVisible();
-			element(vacationType_field).click(); 
+			element(vacationType_field).click();
 			element(vacationType_field).typeAndEnter(vacation_type);
-		}        
+		}
 	}
 
-	public void select_tip_concediu(String checkName)
-	{
+	public void select_tip_concediu(String checkName) {
 		element(ddlTipConcediu).waitUntilVisible();
 		element(ddlTipConcediu).click();
 
 		element(concediuListContainer).waitUntilVisible();
 
-		List<WebElement> checkList = concediuListContainer.findElements(By.cssSelector("li span.aui-field-content"));
+		List<WebElement> checkList = concediuListContainer.findElements(By
+				.cssSelector("li span.aui-field-content"));
 
-		for(WebElement elementNow:checkList){
+		for (WebElement elementNow : checkList) {
 			String currentTerm = elementNow.getText();
 			System.out.println("Current term: " + currentTerm);
-			if(currentTerm.contains(checkName)){
-				elementNow.findElement(By.cssSelector("input:last-child")).click();
+			if (currentTerm.contains(checkName)) {
+				elementNow.findElement(By.cssSelector("input:last-child"))
+						.click();
 				break;
 			}
 		}
 	}
 
-	public void check_basic_search(String t) 
-	{
-		if (!basicSearchField.isDisplayed())
-		{
+	public void check_basic_search(String t) {
+		if (!basicSearchField.isDisplayed()) {
 			throw new IllegalStateException("Vacation type is not displayed!");
-		} else
-		{
+		} else {
 			element(basicSearchField).waitUntilVisible();
-			element(basicSearchField).click(); 
+			element(basicSearchField).click();
 			element(basicSearchField).typeAndEnter(t);
-		}        
+		}
 	}
 
 	public void verifySearchResults(String... terms) {
-		String noOfPagesContainer = getDriver().findElement(By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
+		String noOfPagesContainer = getDriver()
+				.findElement(
+						By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
 				.getText().trim();
-		int noOfPages = getAllIntegerNumbersFromString(
-				noOfPagesContainer).get(1);
+		int noOfPages = getAllIntegerNumbersFromString(noOfPagesContainer).get(
+				1);
 		for (int i = 0; i < noOfPages; i++) {
-			List<WebElement> searchResults = getDriver().findElements(By.cssSelector("table.taglib-search-iterator tr.results-row"));
+			List<WebElement> searchResults = getDriver()
+					.findElements(
+							By.cssSelector("table.taglib-search-iterator tr.results-row"));
 			for (WebElement searchResult : searchResults) {
 				if ($(searchResult).isCurrentlyVisible()) {
 					for (String term : terms) {
 						if (!searchResult.getText().toLowerCase()
 								.contains(term.toLowerCase())) {
-							Assert.fail(String.format("The '%s' search result item does not contain '%s'!", searchResult.getText(), term));
+							Assert.fail(String
+									.format("The '%s' search result item does not contain '%s'!",
+											searchResult.getText(), term));
 						}
 					}
 				}
 			}
 			if (i < noOfPages - 1) {
 				getDriver()
-				.findElement(
-						By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
+						.findElement(
+								By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
 						.click();
 				waitABit(2000);
 			}
@@ -249,7 +230,4 @@ public class EvoVacationHistoryPage extends PageObject {
 				foundAtLeastOneInteger);
 		return listOfIntegers;
 	}
-
-
-
 }

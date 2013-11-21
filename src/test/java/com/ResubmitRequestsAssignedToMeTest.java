@@ -12,14 +12,13 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
-import com.steps.AssignVacationRequestSteps;
 import com.steps.LogInSteps;
-
+import com.steps.RequestsAssignedToMeSteps;
 import com.steps.VacationSteps;
 
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
-public class AssignVacationRequestTest {
+public class ResubmitRequestsAssignedToMeTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -29,33 +28,28 @@ public class AssignVacationRequestTest {
 
 	@Steps
 	public LogInSteps logIn;
-
-	@Steps
-	public LogInSteps endUser;
-
+	
 	@Steps
 	public VacationSteps vacationSteps;
 
 	@Steps
-	public AssignVacationRequestSteps assignTo;
-
+	public LogInSteps endUser;
+	
+	@Steps
+	public  RequestsAssignedToMeSteps resubmit;
+	
 	@Test
-	public void Log_In() {
+	public void Approve() {
 		logIn.enter_user("amelia.ilies@evozon.com");
 		logIn.enter_passd("1234");
 		logIn.clickMe();
 		vacationSteps.assert_vacation_is_visible();
-		endUser.click_vacations();
-		assignTo.click_VacationRequestsBtn();
 		vacationSteps.assert_vacation_link_should_be_visible();
-		// assignTo.markListEntry("Amelia Andrada Ilies",
-		// "1/23/2014 - 1/23/2014");
-		// assignTo.enter_workflowTaskId("80019");
-		assignTo.click_VacationRequestsActionBtn();
-		assignTo.click_AssignToBtn();
-		assignTo.click_a_person("Holasz Kati");
-		assignTo.enter_AssignComment("test");
-		assignTo.click_Ok();
+		endUser.click_vacations();
+		resubmit.assert_VacationRequestsActionBtn_should_be_visible();
+		resubmit.click_VacationRequestsActionBtn();
+		resubmit.assert_VacationRequestsActionBtn_should_be_visible();
+		resubmit.click_ResubmitBtn();
+		resubmit.click_ConfirmResubmit();
 	}
-
 }

@@ -25,7 +25,7 @@ public class MyFreeDaysTest {
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://localhost:9090/")
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090/")
 	public Pages pages;
 
 	@Steps
@@ -50,10 +50,13 @@ public class MyFreeDaysTest {
 		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeCurrentYear(Constants.FREE_CURRENT_YEAR);
 		myFreeDaysSteps.enter_freeFromLastYear(Constants.FREE_LAST_YEAR);
-		myFreeDaysSteps.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING);
-		myFreeDaysSteps.enter_monthsExpPreviousEvozon(Constants.MONTHS_EXP_EVOZON);
-		myFreeDaysSteps.refresh();	
+		myFreeDaysSteps
+				.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING);
+		myFreeDaysSteps
+				.enter_monthsExpPreviousEvozon(Constants.MONTHS_EXP_EVOZON);
+		myFreeDaysSteps.refresh();
 		logIn.assert_SignOut_link_should_be_visible();
+		
 		logIn.click_log_out();
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
@@ -65,10 +68,13 @@ public class MyFreeDaysTest {
 		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeCurrentYear(Constants.FREE_CURRENT_YEAR_1);
 		myFreeDaysSteps.enter_freeFromLastYear(Constants.FREE_LAST_YEAR_1);
-		myFreeDaysSteps.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING_1);
-		myFreeDaysSteps.enter_monthsExpPreviousEvozon(Constants.MONTHS_EXP_EVOZON_1);
+		myFreeDaysSteps
+				.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING_1);
+		myFreeDaysSteps
+				.enter_monthsExpPreviousEvozon(Constants.MONTHS_EXP_EVOZON_1);
 		myFreeDaysSteps.refresh();
 		logIn.assert_SignOut_link_should_be_visible();
+		
 		logIn.click_log_out();
 		logIn.enter_user(Constants.DM_USER);
 		logIn.enter_passd(Constants.DM_PASSWORD);
@@ -80,8 +86,10 @@ public class MyFreeDaysTest {
 		controlPanelSteps.assert_MyFreeDays_page_should_be_visible();
 		myFreeDaysSteps.enter_freeCurrentYear(Constants.FREE_CURRENT_YEAR_2);
 		myFreeDaysSteps.enter_freeFromLastYear(Constants.FREE_LAST_YEAR_2);
-		myFreeDaysSteps.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING_2);
-		myFreeDaysSteps.enter_monthsExpPreviousEvozon(Constants.MONTHS_EXP_EVOZON_2);
-		myFreeDaysSteps.refresh();		
+		myFreeDaysSteps
+				.enter_monthsExpBeforeHiring(Constants.MONTHS_EXP_BEFORE_HIRING_2);
+		myFreeDaysSteps
+				.enter_monthsExpPreviousEvozon(Constants.MONTHS_EXP_EVOZON_2);
+		myFreeDaysSteps.refresh();
 	}
 }

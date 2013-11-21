@@ -23,6 +23,11 @@ public class UpdateDueDateSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+		updateduedate.assert_VacationRequestsActionBtn_should_be_visible();
+	}
+
+	@Step
 	public void click_VacationRequestsActionBtn() {
 		updateduedate.click_VacationRequestsActionBtn();
 	}
@@ -34,42 +39,41 @@ public class UpdateDueDateSteps extends ScenarioSteps {
 
 	@Step
 	public void select_Month(String month) {
-		updateduedate.click_Month(month);			
+		updateduedate.click_Month(month);
 	}
-	
+
 	@Step
 	public void select_Day(String day) {
-		updateduedate.click_Day(day);		
+		updateduedate.click_Day(day);
 	}
-	
+
 	@Step
 	public void select_Year(String year) {
-		updateduedate.click_Year(year);		
+		updateduedate.click_Year(year);
 	}
-	
+
 	@Step
 	public void select_Hour(String hours) {
-		updateduedate.click_Hour(hours);		
+		updateduedate.click_Hour(hours);
 	}
-	
+
 	@Step
 	public void select_Minute(String minutes) {
-		updateduedate.click_Minute(minutes);		
+		updateduedate.click_Minute(minutes);
 	}
-	 
+
 	@Step
 	public void select_AmPm(String ampm) {
-		updateduedate.clic_AmPm(ampm);		
+		updateduedate.clic_AmPm(ampm);
 	}
 
 	@Step
 	public void enter_UpdateComment(String keyword) {
-		updateduedate.UpdateComment("test");		
+		updateduedate.UpdateComment("test");
 	}
-	
+
 	@Step
 	public void click_OkBtn() {
 		updateduedate.click_okBtn();
 	}
-
 }

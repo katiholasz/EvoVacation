@@ -30,6 +30,12 @@ public class CancelAssignVacationRequestSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+		assignvacationrequests
+				.assert_VacationRequestsActionBtn_should_be_visible();
+	}
+
+	@Step
 	public void click_AssignToBtn() {
 		assignvacationrequests.click_AssignToBtn();
 	}

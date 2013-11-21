@@ -1,9 +1,7 @@
 package com.pages;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Assert;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.pages.PageObject;
@@ -14,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 @SuppressWarnings("unused")
-@DefaultUrl("http://localhost:9090/web/guest/login")
+@DefaultUrl("http://172.22.8.39:9090/web/guest/login")
 public class EvoCancelVacationPage extends PageObject {
 
 	// Constructor
@@ -50,10 +48,10 @@ public class EvoCancelVacationPage extends PageObject {
 	@FindBy(id = "_evocancelvacation_WAR_EvozonCancelVacationportlet_endYear")
 	public WebElement end_year_ECvS;
 
-	@FindBy(css =".concediu-label")
+	@FindBy(css = ".concediu-label")
 	private WebElement ddlTipConcediu;
 
-	@FindBy(css ="ul.concediu-ul")
+	@FindBy(css = "ul.concediu-ul")
 	private WebElement concediuListContainer;
 
 	// ---------------------------------- METHODS
@@ -62,20 +60,21 @@ public class EvoCancelVacationPage extends PageObject {
 
 	}
 
-	public void click_ddlTipConcediu(String checkName)
-	{
+	public void click_ddlTipConcediu(String checkName) {
 		element(ddlTipConcediu).waitUntilVisible();
 		element(ddlTipConcediu).click();
 
 		element(concediuListContainer).waitUntilVisible();
 
-		List<WebElement> checkList = concediuListContainer.findElements(By.cssSelector("li span.aui-field-content"));
+		List<WebElement> checkList = concediuListContainer.findElements(By
+				.cssSelector("li span.aui-field-content"));
 
-		for(WebElement elementNow:checkList){
+		for (WebElement elementNow : checkList) {
 			String currentTerm = elementNow.getText();
 			System.out.println("Current term: " + currentTerm);
-			if(currentTerm.contains(checkName)){
-				elementNow.findElement(By.cssSelector("input:last-child")).click();
+			if (currentTerm.contains(checkName)) {
+				elementNow.findElement(By.cssSelector("input:last-child"))
+						.click();
 				break;
 			}
 		}
@@ -159,5 +158,4 @@ public class EvoCancelVacationPage extends PageObject {
 		element(end_year_ECvS).selectByVisibleText(eYear);
 	}
 
-	
 }

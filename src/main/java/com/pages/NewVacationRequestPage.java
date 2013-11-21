@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-@DefaultUrl("http://localhost:9090/web/guest/login")
+@DefaultUrl("http://172.22.8.39:9090/web/guest/login")
 public class NewVacationRequestPage extends PageObject {
 
 	public NewVacationRequestPage(WebDriver driver) {
@@ -48,8 +48,7 @@ public class NewVacationRequestPage extends PageObject {
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_cancelButton")
 	public WebElement cancel_request;
-	
-	
+
 	@FindBy(css = ".portlet-msg-success")
 	public WebElement comfirmation_message;
 
@@ -93,7 +92,6 @@ public class NewVacationRequestPage extends PageObject {
 		element(start_year).selectByVisibleText(sYear);
 	}
 
-
 	public void pick_end_month(String eMonth) {
 		element(end_month).waitUntilVisible();
 		end_month.click();
@@ -130,14 +128,14 @@ public class NewVacationRequestPage extends PageObject {
 		element(cancel_request).waitUntilVisible();
 		cancel_request.click();
 	}
-	
-	public void checkNotificationMessage(String msg) {
-        WebElement message = getDriver()
-                        .findElement(
-                                        By.cssSelector("div[class*='borderless-container'] div[class*='portlet-msg-success']"));
-        System.out.println("It works! " + message.getText());
 
-        Assert.assertTrue("The message is not correct!", message.getText()
-                        .contains(msg));
-}
+	public void checkNotificationMessage(String msg) {
+		WebElement message = getDriver()
+				.findElement(
+						By.cssSelector("div[class*='borderless-container'] div[class*='portlet-msg-success']"));
+		System.out.println("It works! " + message.getText());
+
+		Assert.assertTrue("The message is not correct!", message.getText()
+				.contains(msg));
+	}
 }

@@ -26,8 +26,7 @@ public class EvoVacationHistoryTest {
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://localhost:9090/")
-
+	@ManagedPages(defaultUrl = "http://172.22.8.39:9090")
 	public Pages pages;
 
 	@Steps
@@ -52,15 +51,17 @@ public class EvoVacationHistoryTest {
 		controlPanelSteps.assert_EvoVacationHistory_should_be_visible();
 		controlPanelSteps.click_EvoVacationHistory();
 		evoVacationHistorySteps.check_AdvancedSearch();
-		//evoVacationHistorySteps.select_tip_concediu("Concediu de odihna");
-		evoVacationHistorySteps.insert_firstName(Constants.FIRST_NAME_EVH );
+		// evoVacationHistorySteps.select_tip_concediu("Concediu de odihna");
+		evoVacationHistorySteps.insert_firstName(Constants.FIRST_NAME_EVH);
 		evoVacationHistorySteps.insert_LastName(Constants.LAST_NAME_EVH);
 		evoVacationHistorySteps.insert_dayCount(Constants.DAY_COUNT_EVH);
-		evoVacationHistorySteps.insert_vacationType(Constants.VACATION_TYPE_EVH);
+		evoVacationHistorySteps
+				.insert_vacationType(Constants.VACATION_TYPE_EVH);
 		evoVacationHistorySteps.checkBasicSearch();
 		evoVacationHistorySteps.check_basic_search(Constants.LAST_NAME_EVH);
 		evoVacationHistorySteps.verifySearchResults(Constants.LAST_NAME_EVH);
 		logIn.click_log_out();
 		logIn.waitABit(2000);
+
 	}
 }

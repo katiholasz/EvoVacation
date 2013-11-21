@@ -15,6 +15,8 @@ import com.requirements.Application;
 import com.steps.LogInSteps;
 import com.steps.UpdateDueDateSteps;
 
+import com.steps.VacationSteps;
+
 @Story(Application.class)
 @RunWith(ThucydidesRunner.class)
 public class UpdateDueDateTest {
@@ -32,6 +34,9 @@ public class UpdateDueDateTest {
 	public LogInSteps endUser;
 
 	@Steps
+	public VacationSteps vacationSteps;
+
+	@Steps
 	public UpdateDueDateSteps datePicker;
 
 	@Test
@@ -41,6 +46,7 @@ public class UpdateDueDateTest {
 		logIn.clickMe();
 		endUser.click_vacations();
 		datePicker.click_VacationRequestsBtn();
+		datePicker.assert_VacationRequestsActionBtn_should_be_visible();
 		datePicker.click_VacationRequestsActionBtn();
 		datePicker.click_UpdateBtn();
 		datePicker.select_Month("July");

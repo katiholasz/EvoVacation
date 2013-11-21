@@ -9,7 +9,7 @@ import com.pages.AssignToMeRequestsPage;
 
 @SuppressWarnings("serial")
 @DefaultUrl("http://172.22.8.39:9090/web/guest/login")
-public class AssignToMeRequestsSteps extends ScenarioSteps{
+public class AssignToMeRequestsSteps extends ScenarioSteps {
 
 	public AssignToMeRequestsSteps(Pages pages) {
 		super(pages);
@@ -23,6 +23,11 @@ public class AssignToMeRequestsSteps extends ScenarioSteps{
 	}
 
 	@Step
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+		assigntomerequests.assert_VacationRequestsActionBtn_should_be_visible();
+	}
+
+	@Step
 	public void click_VacationRequestsActionBtn() {
 		assigntomerequests.click_VacationRequestsActionBtn();
 	}
@@ -31,16 +36,15 @@ public class AssignToMeRequestsSteps extends ScenarioSteps{
 	public void click_AssignToMeBtn() {
 		assigntomerequests.click_AssignToMeBtn();
 	}
-	
+
 	@Step
 	public void enter_Comment(String keyword) {
-		assigntomerequests.Comment("test");		
+		assigntomerequests.Comment("test");
 	}
-	
+
 	@Step
 	public void click_ConfirmAssignToMe() {
 		assigntomerequests.click_ConfirmAssignToMe();
 	}
-
 
 }

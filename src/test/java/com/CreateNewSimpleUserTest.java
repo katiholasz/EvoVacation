@@ -59,7 +59,7 @@ public class CreateNewSimpleUserTest {
 		controlPanelSteps.assert_UsersAndOrg_should_be_visible();
 		createNewSimpleUserSteps.getDriver().get(Constants.ADD_USER_URL);
 		createNewSimpleUserSteps.enter_screenName(Constants.NU_SCREEN_NAME);
-		String emailGenerated= tools.GenerateRandom.generate_random_email();
+		String emailGenerated = tools.GenerateRandom.generate_random_email();
 		createNewSimpleUserSteps.enter_emailAdress(emailGenerated);
 		createNewSimpleUserSteps.enter_fName(Constants.NU_F_NAME);
 		createNewSimpleUserSteps.enter_lName(Constants.NU_L_NAME);
@@ -73,7 +73,7 @@ public class CreateNewSimpleUserTest {
 		createNewSimpleUserSteps.click_SitesLink();
 		createNewSimpleUserSteps.add_net_department();
 		createNewSimpleUserSteps.click_save_newUser();
-		logIn.click_log_out();	
+		logIn.click_log_out();
 		logIn.assert_Home_page_should_be_visible();
 		logIn.enter_user(emailGenerated);
 		logIn.enter_passd(Constants.NU_PASSWORD);
@@ -94,5 +94,4 @@ public class CreateNewSimpleUserTest {
 		newVacationRequestSteps.clickSaveBtn();
 		logIn.click_log_out();
 	}
-
 }

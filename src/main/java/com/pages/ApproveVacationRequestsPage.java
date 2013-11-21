@@ -28,19 +28,18 @@ public class ApproveVacationRequestsPage extends PageObject {
 		element(VacationRequestsBtn).click();
 	}
 
-	//	public boolean check_VacationRequestsActionBtn(){
-	// 	return element(VacationRequestsActionBtn).isPresent();
-	//	}
+	// public boolean check_VacationRequestsActionBtn(){
+	// return element(VacationRequestsActionBtn).isPresent();
+	// }
 
 	public void assert_VacationRequestsActionBtn_should_be_visible() {
-        element(VacationRequestsActionBtn).shouldBeVisible();
-		}
+		element(VacationRequestsActionBtn).shouldBeVisible();
+	}
 
 	public void click_VacationRequestsActionBtn() {
-			element(VacationRequestsActionBtn).waitUntilVisible();
-			element(VacationRequestsActionBtn).click(); 
+		element(VacationRequestsActionBtn).waitUntilVisible();
+		element(VacationRequestsActionBtn).click();
 	}
-	
 
 	public void click_ApproveBtn() {
 		element(ApproveBtn).waitUntilVisible();
@@ -51,6 +50,3 @@ public class ApproveVacationRequestsPage extends PageObject {
 		getDriver().navigate().refresh();
 	}
 }
-
-
-

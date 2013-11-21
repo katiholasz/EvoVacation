@@ -23,9 +23,10 @@ public class AssignVacationRequestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	 public void assert_VacationRequestsActionBtn_should_be_visible() {
-		assignvacationrequests.assert_VacationRequestsActionBtn_should_be_visible();
-	 }
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+		assignvacationrequests
+				.assert_VacationRequestsActionBtn_should_be_visible();
+	}
 
 	@Step
 	public void click_VacationRequestsActionBtn() {
@@ -41,22 +42,24 @@ public class AssignVacationRequestSteps extends ScenarioSteps {
 	public void click_AssignUser() {
 		assignvacationrequests.click_AssignUser();
 	}
-	
+
 	@Step
 	public void click_a_person(String person) {
-		assignvacationrequests.select_to_a_person(person);		
+		assignvacationrequests.select_to_a_person(person);
 	}
-	
+
 	@Step
 	public void enter_AssignComment(String keyword) {
-		assignvacationrequests.AssignComment("test");		
+		assignvacationrequests.AssignComment("test");
 	}
-	
+
 	@Step
 	public void click_Ok() {
-		assignvacationrequests.click_OK();		
+		assignvacationrequests.click_OK();
 	}
 
-
-	
+	@Step
+	public void markListEntry(String Username, String dateBetween) {
+		assignvacationrequests.markListEntry(Username, dateBetween);
+	}
 }

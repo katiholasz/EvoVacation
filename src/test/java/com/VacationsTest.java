@@ -42,7 +42,7 @@ public class VacationsTest {
 		logIn.enter_passd(tools.Constants.DM_PASSWORD);
 		logIn.clickMe();
 		logIn.assert_SignOut_link_should_be_visible();
-		logIn.click_vacations();		
+		logIn.click_vacations();
 	}
 
 }

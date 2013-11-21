@@ -1,3 +1,4 @@
+
 package com.pages;
 
 import org.openqa.selenium.WebDriver;
@@ -33,6 +34,10 @@ public class CancelAssignVacationRequestPage extends PageObject {
 		element(VacationRequestsBtn).waitUntilVisible();
 		VacationRequestsBtn.click();
 	}
+	
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+        element(VacationRequestsActionBtn).shouldBeVisible();
+	 }
 
 	public void click_VacationRequestsActionBtn() {
 		element(VacationRequestsActionBtn).waitUntilVisible();
@@ -40,10 +45,6 @@ public class CancelAssignVacationRequestPage extends PageObject {
 	}
 
 	public void click_AssignToBtn() {
-		// element(myRolesPanel).waitUntilVisible();
-		// List<WebElement> assignToButtons =
-		// assignToButtons.get(0).click();
-
 		element(AssignToBtn).waitUntilVisible();
 		AssignToBtn.click();
 	}
@@ -52,5 +53,4 @@ public class CancelAssignVacationRequestPage extends PageObject {
 		element(Cancel).waitUntilVisible();
 		Cancel.click();
 	}
-
 }

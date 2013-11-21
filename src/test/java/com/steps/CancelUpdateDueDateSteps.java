@@ -25,6 +25,12 @@ public class CancelUpdateDueDateSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void assert_VacationRequestsActionBtn_should_be_visible() {
+		cancelupdateduedate
+				.assert_VacationRequestsActionBtn_should_be_visible();
+	}
+
+	@Step
 	public void click_VacationRequestsActionBtn() {
 		updateduedate.click_VacationRequestsActionBtn();
 	}
