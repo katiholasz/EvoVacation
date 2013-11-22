@@ -14,6 +14,7 @@ public class RejectVacationRequestsPage extends PageObject {
 		super(driver);
 	}
 
+	//---------ELEMENTS----------
 	@FindBy(css = "a[href*=inbox]")
 	private WebElement VacationRequestsBtn;
 
@@ -23,6 +24,8 @@ public class RejectVacationRequestsPage extends PageObject {
 	@FindBy(css = ".taglib-icon")
 	private WebElement RejectBtn;
 
+	//----------METHODS--------------
+	//see vacation requests 
 	public void click_VacationRequestsBtn() {
 		element(VacationRequestsBtn).waitUntilVisible();
 		element(VacationRequestsBtn).click();

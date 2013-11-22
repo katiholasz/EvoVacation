@@ -33,7 +33,6 @@ public class MyFreeDaysPage extends PageObject {
 	public WebElement monthsExpPreviousEvozon;
 
 	// ---------------------------------- METHODS
-	// --------------------------------------------------
 	// enter data to input - Free From Last Year
 	public void enter_freeFromLastYear(String freeLastYear) {
 		element(freeDaysLastYear).waitUntilVisible();
@@ -62,6 +61,7 @@ public class MyFreeDaysPage extends PageObject {
 		element(monthsExpPreviousEvozon).type(expPreviousEvo);
 	}
 
+	//refresh page
 	public void refresh() {
 		getDriver().navigate().refresh();
 

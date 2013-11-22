@@ -21,8 +21,7 @@ import javax.mail.Store;
 
 import com.sun.mail.imap.IMAPFolder;
 
-public class CompareEmails 
-{
+public class CompareEmails {
 	public static String email_sent_date;
 	public static String email_received_date;
 	public static String email_sender;
@@ -30,10 +29,10 @@ public class CompareEmails
 	public static String email_content;
 	public static String sent_date;
 	public static String cureent_date;
-	public static boolean match_found=true;
+	public static boolean match_found = true;
 
-	//static public void getEmailsForApprovedVacationRequest(String EMAIL_SUBJECT_APPROVED, String EMAIL_FROM, String EMAIL_CONTENT_USER, String EMAIL_SENT_DATE) throws MessagingException,IOException {
-		static public void getEmailsForApprovedVacationRequest() throws MessagingException,IOException {
+	static public void getEmailsForApprovedVacationRequest()
+			throws MessagingException, IOException {
 		IMAPFolder folder = null;
 		Store store = null;
 
@@ -45,40 +44,57 @@ public class CompareEmails
 
 			store = session.getStore("imaps");
 
-			store.connect(tools.Constants.IMAP_TYPE,tools.Constants.ACOOUNT_ADDRESS,tools.Constants.ACOOUNT_PASSWORD);
+			store.connect(tools.Constants.IMAP_TYPE,
+					tools.Constants.ACOOUNT_ADDRESS,
+					tools.Constants.ACOOUNT_PASSWORD);
 
 			folder = (IMAPFolder) store.getFolder("inbox");
-			
-			DateFormat dateFormat = new SimpleDateFormat("EEE MMM d yyyy, 'Hour:' HH");
 
-			if (!folder.isOpen()) folder.open(Folder.READ_WRITE);
+			DateFormat dateFormat = new SimpleDateFormat(
+					"EEE MMM d yyyy, 'Hour:' HH");
+
+			if (!folder.isOpen())
+				folder.open(Folder.READ_WRITE);
 
 			Message[] msg = folder.getMessages();
 			System.out.println("All Messages : " + folder.getMessageCount());
-			System.out.println("Unread Messages : "+ folder.getUnreadMessageCount());
+			System.out.println("Unread Messages : "
+					+ folder.getUnreadMessageCount());
 			System.out.println();
-			for (Message message : msg) {				
+			for (Message message : msg) {
 				Calendar cal = Calendar.getInstance();
-				cureent_date=dateFormat.format(cal.getTime());
-				sent_date =dateFormat.format(message.getSentDate());
+				cureent_date = dateFormat.format(cal.getTime());
+				sent_date = dateFormat.format(message.getSentDate());
 				email_sent_date = message.getSentDate().toString();
 				email_received_date = message.getReceivedDate().toString();
 				email_sender = message.getFrom()[0].toString();
 				email_subject = message.getSubject().toString();
 				email_content = message.getContent().toString();
 
-				String text=email_sender+email_subject+email_content+sent_date;
-				if (checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_SUBJECT_APPROVED) 
-						&& checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_FROM)
-						&& checkIfTextContainsTerms(text, false, tools.Constants.EMAIL_CONTENT_USER)
-						&& checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_SENT_DATE)){
-					System.out.println("---------------------------------------------------------------------------------");
-					System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
-					System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
-					System.out.println("RECEIVED DATE: \t" + dateFormat.format(message.getReceivedDate()));
-					System.out.println("FROM: \t "+ message.getFrom()[0].toString());
-					System.out.println("SUBJECT: \t"+ message.getSubject().toString());
-					System.out.println("CONTENT: \t"+ message.getContent().toString());
+				String text = email_sender + email_subject + email_content
+						+ sent_date;
+				if (checkIfTextContainsTerms(text, false,
+						tools.Constants.EMAIL_SUBJECT_APPROVED)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_FROM)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_CONTENT_USER)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_SENT_DATE)) {
+					System.out
+							.println("---------------------------------------------------------------------------------");
+					System.out.println("CURRENT DATE: \t"
+							+ dateFormat.format(cal.getTime()));
+					System.out.println("SENT DATE: \t"
+							+ dateFormat.format(message.getSentDate()));
+					System.out.println("RECEIVED DATE: \t"
+							+ dateFormat.format(message.getReceivedDate()));
+					System.out.println("FROM: \t "
+							+ message.getFrom()[0].toString());
+					System.out.println("SUBJECT: \t"
+							+ message.getSubject().toString());
+					System.out.println("CONTENT: \t"
+							+ message.getContent().toString());
 					System.out.println("MATCH FOUND!");
 
 				}
@@ -102,52 +118,68 @@ public class CompareEmails
 			}
 		}
 	}
-	
-	static public void getEmailsForRejectedVacationRequest() throws MessagingException,IOException {
+
+	static public void getEmailsForRejectedVacationRequest()
+			throws MessagingException, IOException {
 		IMAPFolder folder = null;
 		Store store = null;
-		
+
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
-	
+
 			Session session = Session.getDefaultInstance(props, null);
 			store = session.getStore("imaps");
-			
+
 			folder = (IMAPFolder) store.getFolder("inbox");
-			
-			DateFormat dateFormat = new SimpleDateFormat("EEE MMM d yyyy, 'Hour:' HH");
-	
-			if (!folder.isOpen()) folder.open(Folder.READ_WRITE);
-			
+
+			DateFormat dateFormat = new SimpleDateFormat(
+					"EEE MMM d yyyy, 'Hour:' HH");
+
+			if (!folder.isOpen())
+				folder.open(Folder.READ_WRITE);
+
 			Message[] msg = folder.getMessages();
 			System.out.println("All Messages : " + folder.getMessageCount());
-			System.out.println("Unread Messages : "+ folder.getUnreadMessageCount());
+			System.out.println("Unread Messages : "
+					+ folder.getUnreadMessageCount());
 			System.out.println();
-			for (Message message : msg) {				
+			for (Message message : msg) {
 				Calendar cal = Calendar.getInstance();
-				cureent_date=dateFormat.format(cal.getTime());
-				sent_date =dateFormat.format(message.getSentDate());
+				cureent_date = dateFormat.format(cal.getTime());
+				sent_date = dateFormat.format(message.getSentDate());
 				email_sent_date = message.getSentDate().toString();
 				email_received_date = message.getReceivedDate().toString();
 				email_sender = message.getFrom()[0].toString();
 				email_subject = message.getSubject().toString();
 				email_content = message.getContent().toString();
-				
-				String text=email_sender+email_subject+email_content+sent_date;
-				if (checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_SUBJECT_REJECTED) 
-						&& checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_FROM)
-						&& checkIfTextContainsTerms(text, false, tools.Constants.EMAIL_CONTENT_USER)
-						&& checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_SENT_DATE)){
-					System.out.println("---------------------------------------------------------------------------------");
-					System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
-					System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
-					System.out.println("RECEIVED DATE: \t" + dateFormat.format(message.getReceivedDate()));
-					System.out.println("FROM: \t "+ message.getFrom()[0].toString());
-					System.out.println("SUBJECT: \t"+ message.getSubject().toString());
-					System.out.println("CONTENT: \t"+ message.getContent().toString());
+
+				String text = email_sender + email_subject + email_content
+						+ sent_date;
+				if (checkIfTextContainsTerms(text, false,
+						tools.Constants.EMAIL_SUBJECT_REJECTED)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_FROM)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_CONTENT_USER)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_SENT_DATE)) {
+					System.out
+							.println("---------------------------------------------------------------------------------");
+					System.out.println("CURRENT DATE: \t"
+							+ dateFormat.format(cal.getTime()));
+					System.out.println("SENT DATE: \t"
+							+ dateFormat.format(message.getSentDate()));
+					System.out.println("RECEIVED DATE: \t"
+							+ dateFormat.format(message.getReceivedDate()));
+					System.out.println("FROM: \t "
+							+ message.getFrom()[0].toString());
+					System.out.println("SUBJECT: \t"
+							+ message.getSubject().toString());
+					System.out.println("CONTENT: \t"
+							+ message.getContent().toString());
 					System.out.println("MATCH FOUND!");
-					
+
 				}
 				String contentType = message.getContentType();
 				if (contentType.contains("text/plain")
@@ -169,55 +201,73 @@ public class CompareEmails
 			}
 		}
 	}
-	
-	static public void getEmailsForSubmitedVacationRequest() throws MessagingException,IOException {
+
+	static public void getEmailsForSubmitedVacationRequest()
+			throws MessagingException, IOException {
 		IMAPFolder folder = null;
 		Store store = null;
-		
+
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
-			
+
 			Session session = Session.getDefaultInstance(props, null);
-			
+
 			store = session.getStore("imaps");
-			
-			store.connect(tools.Constants.IMAP_TYPE,tools.Constants.ACOOUNT_ADDRESS,tools.Constants.ACOOUNT_PASSWORD);
-			
+
+			store.connect(tools.Constants.IMAP_TYPE,
+					tools.Constants.ACOOUNT_ADDRESS,
+					tools.Constants.ACOOUNT_PASSWORD);
+
 			folder = (IMAPFolder) store.getFolder("inbox");
-			
-			DateFormat dateFormat = new SimpleDateFormat("EEE MMM d yyyy, 'Hour:' HH");
-			
-			if (!folder.isOpen()) folder.open(Folder.READ_WRITE);
-			
+
+			DateFormat dateFormat = new SimpleDateFormat(
+					"EEE MMM d yyyy, 'Hour:' HH");
+
+			if (!folder.isOpen())
+				folder.open(Folder.READ_WRITE);
+
 			Message[] msg = folder.getMessages();
 			System.out.println("All Messages : " + folder.getMessageCount());
-			System.out.println("Unread Messages : "+ folder.getUnreadMessageCount());
+			System.out.println("Unread Messages : "
+					+ folder.getUnreadMessageCount());
 			System.out.println();
-			for (Message message : msg) {				
+			for (Message message : msg) {
 				Calendar cal = Calendar.getInstance();
-				cureent_date=dateFormat.format(cal.getTime());
-				sent_date =dateFormat.format(message.getSentDate());
+				cureent_date = dateFormat.format(cal.getTime());
+				sent_date = dateFormat.format(message.getSentDate());
 				email_sent_date = message.getSentDate().toString();
 				email_received_date = message.getReceivedDate().toString();
 				email_sender = message.getFrom()[0].toString();
 				email_subject = message.getSubject().toString();
 				email_content = message.getContent().toString();
-				
-				String text=email_sender+email_subject+email_content+sent_date;
-				if (checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_SUBJECT_NEW_REQUEST) 
-						&& checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_FROM)
-						&& checkIfTextContainsTerms(text, false, tools.Constants.EMAIL_CONTENT_USER)
-						&& checkIfTextContainsTerms(text,false,tools.Constants.EMAIL_SENT_DATE)){
-					System.out.println("---------------------------------------------------------------------------------");
-					System.out.println("CURRENT DATE: \t"+dateFormat.format(cal.getTime()));
-					System.out.println("SENT DATE: \t"+dateFormat.format(message.getSentDate()));
-					System.out.println("RECEIVED DATE: \t" + dateFormat.format(message.getReceivedDate()));
-					System.out.println("FROM: \t "+ message.getFrom()[0].toString());
-					System.out.println("SUBJECT: \t"+ message.getSubject().toString());
-					System.out.println("CONTENT: \t"+ message.getContent().toString());
+
+				String text = email_sender + email_subject + email_content
+						+ sent_date;
+				if (checkIfTextContainsTerms(text, false,
+						tools.Constants.EMAIL_SUBJECT_NEW_REQUEST)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_FROM)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_CONTENT_USER)
+						&& checkIfTextContainsTerms(text, false,
+								tools.Constants.EMAIL_SENT_DATE)) {
+					System.out
+							.println("---------------------------------------------------------------------------------");
+					System.out.println("CURRENT DATE: \t"
+							+ dateFormat.format(cal.getTime()));
+					System.out.println("SENT DATE: \t"
+							+ dateFormat.format(message.getSentDate()));
+					System.out.println("RECEIVED DATE: \t"
+							+ dateFormat.format(message.getReceivedDate()));
+					System.out.println("FROM: \t "
+							+ message.getFrom()[0].toString());
+					System.out.println("SUBJECT: \t"
+							+ message.getSubject().toString());
+					System.out.println("CONTENT: \t"
+							+ message.getContent().toString());
 					System.out.println("MATCH FOUND!");
-					
+
 				}
 				String contentType = message.getContentType();
 				if (contentType.contains("text/plain")
@@ -263,4 +313,3 @@ public class CompareEmails
 		return body;
 	}
 }
-

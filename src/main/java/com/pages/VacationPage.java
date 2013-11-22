@@ -14,16 +14,20 @@ public class VacationPage extends PageObject {
 		super(driver);
 	}
 
+	// --------- ELEMENTS ----------
 	@FindBy(css = "a[href*=vacation]")
 	public WebElement vacation;
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_addVacationRequest")
 	public WebElement addVacation;
 
+	// --------- METHODS -------------
+	// check if vacation link is visible 
 	public void assert_vacation_is_visible() {
 		element(vacation).shouldBeVisible();
 	}
 
+	//click vacation
 	public void vacation() {
 		element(vacation).waitUntilVisible();
 		element(vacation).click();
@@ -38,6 +42,7 @@ public class VacationPage extends PageObject {
 		element(addVacation).click();
 	}
 
+	//check if new vacation request button is visible 
 	public void assert_NewVacationRequest_button_should_be_visible() {
 		element(addVacation).shouldBeVisible();
 	}

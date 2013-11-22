@@ -18,11 +18,6 @@ public class ProcessesPage extends PageObject {
 
 	}
 
-	/*
-	 * @FindBy(css=
-	 * "_1_WAR_EvozonKaleooFormsportlet_tabs111211411199101115115101115TabsId")
-	 * public WebElement processes;
-	 */
 	@FindBy(css = "a[href*=processes]")
 	public WebElement processes;
 
@@ -35,6 +30,7 @@ public class ProcessesPage extends PageObject {
 	@FindBy(css = "table.taglib-search-iterator")
 	private WebElement myVacationCompletedRequestTable;
 
+	// go to processes - VACATION REQUESTS
 	public void see_processes() {
 		element(processes).waitUntilVisible();
 		processes.click();
@@ -50,10 +46,11 @@ public class ProcessesPage extends PageObject {
 		see_requests.click();
 	}
 
+	// list processes
 	public void getMyVacationCompletedRequests() {
 		element(myVacationCompletedRequestTable).waitUntilVisible();
 		List<WebElement> resultList = myVacationCompletedRequestTable
-				.findElements(By.cssSelector("tr "));
+				.findElements(By.cssSelector("tr"));
 
 		for (WebElement elementNow : resultList) {
 			System.out.println("Element now: " + elementNow.getText());

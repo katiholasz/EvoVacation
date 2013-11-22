@@ -129,10 +129,6 @@ public class CreateNewSimpleUserPage extends PageObject {
 		element(password2).type(pass2);
 	}
 
-	public void add_site() {
-
-	}
-
 	public void click_selectDepartemntButton() {
 		element(selectDepartemntButton).waitUntilVisible();
 		selectDepartemntButton.click();
@@ -166,7 +162,6 @@ public class CreateNewSimpleUserPage extends PageObject {
 	}
 
 	public void select_net_dep_from_users_and_organizations() {
-		// getDriver().switchTo().window("Users and Organizations");
 		String defaultHandle = getDriver().getWindowHandle();
 
 		Set<String> handles = getDriver().getWindowHandles();

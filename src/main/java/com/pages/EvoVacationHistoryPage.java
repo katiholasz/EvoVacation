@@ -67,7 +67,6 @@ public class EvoVacationHistoryPage extends PageObject {
 	private WebElement concediuListContainer;
 
 	// ---------------------------------- METHODS
-	// --------------------------------------------------
 	public void refresh_page() {
 		getDriver().navigate().refresh();
 	}
@@ -82,19 +81,18 @@ public class EvoVacationHistoryPage extends PageObject {
 	}
 
 	public void checkAdvancedSearch() {
-		if (element(advancedSearchLink).isDisplayed()) {
-			element(advancedSearchLink).waitUntilVisible();
-			element(advancedSearchLink).click();
+		if (!advancedSearchLink.isDisplayed()) {
+			checkBasicSearch();
 		} else {
-			if (!advancedSearchLink.isDisplayed()) {
-				checkBasicSearch();
+			if (advancedSearchLink.isDisplayed()) {
+				element(advancedSearchLink).waitUntilVisible();
+				element(advancedSearchLink).click();
 			}
 		}
 	}
-	
 
 	public void checkBasicSearch() {
-		if (!element(basicSearchLink).isDisplayed()) {
+		if (!basicSearchLink.isDisplayed()) {
 			refresh_page();
 		} else {
 			if (basicSearchLink.isDisplayed()) {
@@ -103,7 +101,7 @@ public class EvoVacationHistoryPage extends PageObject {
 			}
 		}
 	}
-	
+
 	public void assert_advanced_search() {
 		element(advancedSearchLink).isPresent();
 	}

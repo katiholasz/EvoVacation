@@ -25,13 +25,6 @@ public class ShowUnreadEmails {
 					email_date = message.getSentDate().toString();
 					System.out.println("RECEIVED DATE: \t" + message.getReceivedDate().toString());
 					email_received_date = message.getReceivedDate().toString();
-					//System.out.println("SENT DATE: \t" + message.getSentDate());
-					/*System.out.println("MONTH: \t" + message.getSentDate());
-					System.out.println("DAY: \t" + message.getSentDate().toString());
-					System.out.println("HOUR: \t" + message.getSentDate().toString());
-					System.out.println("MINUTES: \t" + message.getSentDate().toString());
-					System.out.println("SECONDS: \t" + message.getSentDate().toString());
-					System.out.println("TIMEZONE: \t" + message.getSentDate().toString());*/
 					System.out.println("FROM: \t "+ message.getFrom()[0].toString());
 					email_sender = message.getFrom()[0].toString();
 					System.out.println("SUBJECT: \t"+ message.getSubject().toString());

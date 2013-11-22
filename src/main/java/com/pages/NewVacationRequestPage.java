@@ -65,6 +65,7 @@ public class NewVacationRequestPage extends PageObject {
 		element(concediu).click();
 	}
 
+	//--------- START DATE ----------
 	public void pick_start_month(String sMonth) {
 		element(start_month).waitUntilVisible();
 		start_month.click();
@@ -91,7 +92,8 @@ public class NewVacationRequestPage extends PageObject {
 		// aaa.selectByVisibleText(sMonth);
 		element(start_year).selectByVisibleText(sYear);
 	}
-
+	
+	//--------- END DATE ----------
 	public void pick_end_month(String eMonth) {
 		element(end_month).waitUntilVisible();
 		end_month.click();
@@ -119,16 +121,19 @@ public class NewVacationRequestPage extends PageObject {
 		element(end_year).selectByVisibleText(eYear);
 	}
 
+	//save request after picking start and end date 
 	public void save_request() {
 		element(save_button).waitUntilVisible();
 		save_button.click();
 	}
 
+	// cancel changes - don't submit request
 	public void cancel_request() {
 		element(cancel_request).waitUntilVisible();
 		cancel_request.click();
 	}
 
+	//check message 
 	public void checkNotificationMessage(String msg) {
 		WebElement message = getDriver()
 				.findElement(
